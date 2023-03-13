@@ -7,9 +7,9 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
-    "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
-    "lint": "npm run lint:format && npm run lint:fix ",
+    "lint-fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+    "lint-format": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+    "lint": "npm run lint-format && npm run lint-fix ",
     "type-check": "tsc"
   },
   "dependencies": {
@@ -17,8 +17,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "framer-motion": "^10.2.4",
-    "sass": "^1.59.2",
     "@nabla/vite-plugin-eslint": "^1.5.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
@@ -33,12 +31,15 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "framer-motion": "^10.2.4",
     "postcss": "^8.4.21",
     "pre-commit": "^1.2.2",
     "prettier": "^2.8.4",
+    "sass": "^1.59.2",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
+    "vite-plugin-svgo": "^1.2.0",
     "vite-plugin-webfont-dl": "^3.6.1"
   },
   "pre-commit": "lint",
