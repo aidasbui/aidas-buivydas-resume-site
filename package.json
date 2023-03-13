@@ -1,7 +1,8 @@
 {
-  "name": "react-audio-visualizer",
+  "name": "aidas-buivydas-resume-site",
   "private": true,
   "version": "0.0.0",
+  "author": "Aidas Buivydas <aidasbuivydas@gmail.com>",
   "type": "module",
   "scripts": {
     "start": "vite",
@@ -14,7 +15,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.5.0",
