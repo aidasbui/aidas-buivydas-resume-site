@@ -1,13 +1,9 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
-
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <h1>zdrw</h1>
+    <div className="w-screen h-screen bg-red-300 text-3xl ">
+      Hi Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nemo, sed
+      reprehenderit fugit earum assumenda culpa repudiandae itaque dolores dolore! Velit
+      numquam repudiandae tempora odit autem fuga cupiditate placeat quasi.
     </div>
   );
 }

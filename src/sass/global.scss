@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@forward 'utilities';
+@forward 'base';
+@forward 'vendor';
+@forward 'themes';
