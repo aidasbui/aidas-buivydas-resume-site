@@ -4,10 +4,11 @@
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
       ],
-     theme: {
+      darkMode: 'class',
+      theme: {
       fontFamily: {
-      'sans': 'Inconsolata',
-      'mono': 'Inconsolata',
+      'sans': ['JetBrains Mono', 'sans-serif'],
+      'mono': ['VT323', 'sans-serif'],
     },
      extend: {},
      },
