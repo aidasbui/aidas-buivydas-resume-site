@@ -14,7 +14,8 @@ module.exports = {
       'color-white': '#FAFAFA',
     },
     fontFamily: {
-      sans: '"JetBrains Mono"',
+      sans: ['"JetBrains Mono"'],
+      mono: ['"JetBrains Mono"', '"Noto Sans Mono"'],
     },
     fontSize: {
       sm: ['1rem', { lineHeight: '1.75' }],
