@@ -1,7 +1,70 @@
-@forward 'utilities';
+/* @forward 'utilities';
 @forward 'base';
 @forward 'vendor';
-@forward 'themes';
+@forward 'themes'; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'JetBrains Mono', sans-serif;
+    color: theme('colors.color-white');
+    font-size: theme('fontSize.base');
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'VT323', 'JetBrains Mono', sans-serif;
+  }
+
+  h1,
+  h2 {
+    font-size: theme('fontSize.2xl');
+  }
+
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  [disabled] {
+    cursor: not-allowed;
+  }
+
+  [aria-busy='true'] {
+    cursor: wait;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-delay: -1ms !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      background-attachment: initial !important;
+      scroll-behavior: auto !important;
+      transition-delay: 0s !important;
+      transition-duration: 0s !important;
+    }
+  }
+}
