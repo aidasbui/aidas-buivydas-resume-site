@@ -13,9 +13,9 @@ const Home = () => {
   I also make music! Feel free to check out a few of my recent DJ sets on MixCloud.`;
 
   return (
-    <div className=" w-full">
+    <div className="w-full text-center">
       <section>
-        <h2 className="py-4">
+        <h2 className="pb-4">
           {heroHeading}
           <motion.span
             className="inline-block"
