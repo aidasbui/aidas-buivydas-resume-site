@@ -1,10 +1,11 @@
-/* @forward 'utilities';
-@forward 'base';
-@forward 'vendor';
-@forward 'themes'; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-jetBrainsMono: 'JetBrains Mono';
+  --font-vt323: 'VT323';
+}
 
 @layer base {
   html {
@@ -24,12 +25,19 @@
   h4,
   h5,
   h6 {
-    font-family: 'VT323', 'JetBrains Mono', sans-serif;
+    @apply font-vt323;
   }
 
-  h1,
+  h1 {
+    @apply text-5xl;
+  }
+
   h2 {
-    font-size: theme('fontSize.2xl');
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl;
   }
 
   .no-scroll {
