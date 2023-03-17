@@ -5,7 +5,7 @@ import Header from '../Header';
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="p flex min-h-screen flex-col justify-between bg-color-primary">
+    <div className="  flex min-h-screen flex-col justify-between bg-background-noise bg-cover bg-center">
       <div className="top-0 left-0">
         <Header />
       </div>

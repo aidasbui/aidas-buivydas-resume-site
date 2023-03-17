@@ -27,6 +27,7 @@ module.exports = {
       },
       backgroundImage: {
         'aidas-bui-photo': "url('./src/assets/images/aidas-buivydas.jpeg')",
+        'background-noise': "url('./src/assets/images/background-noise.svg')",
       },
     },
   },
