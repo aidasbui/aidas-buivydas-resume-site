@@ -9,7 +9,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <div className="top-0 left-0">
         <Header />
       </div>
-      <main className="mx-auto my-0 min-h-screen px-4 py-6">{children}</main>
+      <main className="mx-auto my-0 min-h-screen p-12">{children}</main>
       <div className="my-auto">
         <Footer />
       </div>
