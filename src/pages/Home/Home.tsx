@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
+import { useLevitate as Levitate } from '../../hooks/useLevitate';
 import { TTextContent } from '../../types/text-content';
 
 const Home = () => {
@@ -17,14 +18,7 @@ const Home = () => {
       <section>
         <h2>
           {heroHeading}
-          <motion.span
-            className="inline-block"
-            initial={{ y: 0 }}
-            animate={{ y: '-0.1rem' }}
-            transition={{ duration: 0.8, repeat: Infinity, repeatType: 'reverse' }}
-          >
-            !
-          </motion.span>
+          <Levitate>!</Levitate>
         </h2>
         <p className="whitespace-pre-line">{heroParagraph}</p>
       </section>
