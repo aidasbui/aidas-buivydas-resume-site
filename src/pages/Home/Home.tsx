@@ -4,7 +4,7 @@ import { useLevitate as Levitate } from '../../hooks/useLevitate';
 import { TTextContent } from '../../types/text-content';
 
 const Home = () => {
-  const heroHeading: TTextContent = `Welcome`;
+  const heroHeading: TTextContent = `Welcome!`;
 
   const heroParagraph: TTextContent = `You've encountered my personal website.
 
@@ -16,8 +16,7 @@ const Home = () => {
     <div className="w-full">
       <section>
         <h2>
-          {heroHeading}
-          <Levitate>!</Levitate>
+          <Levitate>{heroHeading}</Levitate>
         </h2>
         <p className="whitespace-pre-line">{heroParagraph}</p>
       </section>
