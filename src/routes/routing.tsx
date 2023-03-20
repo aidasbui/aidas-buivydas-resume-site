@@ -14,7 +14,7 @@ export const RouteManager = React.memo(() => {
             key={key}
             path={path}
             element={
-              <Suspense fallback={<h1>404 Not Found</h1>}>
+              <Suspense fallback={<h1>Loading...</h1>}>
                 <Component />
               </Suspense>
             }
