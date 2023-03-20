@@ -15,9 +15,9 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <>
-      <div className="relative -z-50 flex min-h-screen flex-col justify-between overflow-hidden bg-color-primary">
+      <div className="relative flex min-h-screen flex-col justify-between">
         <motion.div
-          className="absolute -z-40 h-full w-full bg-background-noise  bg-center"
+          className="absolute -z-40 h-full w-full bg-color-primary  bg-background-noise bg-center"
           style={{ backgroundPositionY: yRange }}
         />
         <div className="top-0 left-0">
