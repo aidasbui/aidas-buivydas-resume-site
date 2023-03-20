@@ -7,12 +7,11 @@ import Header from '../Header';
 const Layout = ({ children }: PropsWithChildren) => {
   const { scrollY } = useScroll();
   const y = useSpring(scrollY, {
-    stiffness: 280,
-    damping: 60,
-    velocity: 0,
+    stiffness: 300,
+    damping: 70,
     mass: 0.1,
   });
-  const yRange = useTransform(y, [0, 5000], ['0%', '100%']);
+  const yRange = useTransform(y, [0, 5000], ['0%', '40%']);
 
   return (
     <>
