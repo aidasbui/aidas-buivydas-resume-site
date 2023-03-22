@@ -20,7 +20,7 @@ const NotFound = () => {
       <Button to={routes.home} ariaLabel="Navigate to the home page">
         Home
       </Button>
-      <SVG_Katiniukas className="fixed bottom-0 w-96" />
+      <SVG_Katiniukas className="fixed bottom-0 -z-10 max-w-[120px]" />
     </div>
   );
 };
