@@ -22,7 +22,7 @@ module.exports = {
         'color-purple-800': 'hsl(287,15%,24%)',
         'color-purple-700': 'hsl(291,11%,47%)',
         'color-purple-600': 'hsl(288,15%,34%)',
-        'color-purple-500': 'hsl(287,19%,67%)',
+        'color-purple-500': 'hsl(287,19%,60%)',
         'color-white': 'hsl(0,0%,98%)',
       },
       backgroundImage: {
