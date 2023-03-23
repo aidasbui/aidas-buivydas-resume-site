@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -32,52 +33,87 @@ const Button = ({
   {
     if (localFile) {
       return (
-        <a
-          href={href}
-          download={download}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={ariaLabel}
-          className={`${buttonStyles} w-44`}
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          whileTap={{
+            scale: 0.97,
+          }}
         >
-          {children}
-        </a>
+          <a
+            href={href}
+            download={download}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={ariaLabel}
+            className={`${buttonStyles} inline-block w-44 focus:outline-transparent`}
+          >
+            {children}
+          </a>
+        </motion.div>
       );
     } else if (outerLink) {
       return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={ariaLabel}
-          className={buttonStyles}
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          whileTap={{
+            scale: 0.97,
+          }}
         >
-          {children}
-        </a>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={ariaLabel}
+            className={buttonStyles}
+          >
+            {children}
+          </a>
+        </motion.div>
       );
     } else if (innerLink) {
       return (
-        <a href={href} target="_self" aria-label={ariaLabel} className={buttonStyles}>
-          {children}
-        </a>
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          whileTap={{
+            scale: 0.97,
+          }}
+        >
+          <a href={href} target="_self" aria-label={ariaLabel} className={buttonStyles}>
+            {children}
+          </a>
+        </motion.div>
       );
     } else if (to) {
       return (
-        <Link to={to} aria-label={ariaLabel} className={buttonStyles}>
-          {children}
-        </Link>
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          whileTap={{
+            scale: 0.97,
+          }}
+        >
+          <Link to={to} aria-label={ariaLabel} className={buttonStyles}>
+            {children}
+          </Link>
+        </motion.div>
       );
     } else {
       return (
-        <button
-          type={type}
-          onClick={onClick}
-          aria-label={ariaLabel}
-          disabled={disabled}
-          className={buttonStyles}
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          whileTap={{
+            scale: 0.97,
+          }}
         >
-          {children}
-        </button>
+          <button
+            type={type}
+            onClick={onClick}
+            aria-label={ariaLabel}
+            disabled={disabled}
+            className={buttonStyles}
+          >
+            {children}
+          </button>
+        </motion.div>
       );
     }
   }

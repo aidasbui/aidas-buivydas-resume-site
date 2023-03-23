@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import React from 'react';
 
 import { ReactComponent as SVG_Katiniukas } from '../../assets/images/katiniukas.svg';
@@ -18,16 +17,11 @@ const NotFound = () => {
         </h1>
         <p>Oops! It looks like the page you&#39;re looking for doesn&#39;t exist.</p>
       </div>
-      <motion.div
-        whileHover={{ scale: 1.03 }}
-        whileTap={{
-          scale: 0.97,
-        }}
-      >
-        <Button to={routes.home} ariaLabel="Navigate to the home page">
-          Home
-        </Button>
-      </motion.div>
+
+      <Button to={routes.home} ariaLabel="Navigate to the home page">
+        Home
+      </Button>
+
       <SVG_Katiniukas className="fixed bottom-0 -z-10 max-w-[120px]" />
     </div>
   );
