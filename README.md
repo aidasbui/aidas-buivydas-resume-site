@@ -20,4 +20,4 @@ Note: it's my first time using TailWind CSS and setting up a project with Vite (
 
 ## License
 
-This web app has the MIT license.
+This web app is released under the MIT license.
