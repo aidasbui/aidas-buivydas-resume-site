@@ -20,6 +20,10 @@
     @apply subpixel-antialiased;
   }
 
+  a {
+    @apply focus:outline-dashed focus:outline-offset-8 focus:outline-color-secondary;
+  }
+
   h1,
   h2,
   h3,
