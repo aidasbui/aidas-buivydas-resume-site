@@ -40,7 +40,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       onKeyDown={handleKeypress}
       className={`${
         isExpanded && expandedCardStyles
-      } h-full w-full max-w-sm transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 shadow-2xl transition-colors duration-75 hover:bg-color-purple-600 focus:outline-dashed focus:outline-offset-4 focus:outline-color-secondary active:border-color-secondary active:bg-color-purple-600
+      } h-full w-full max-w-sm transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 shadow-2xl transition-colors duration-75 hover:border-color-purple-500 hover:bg-color-purple-600 focus:outline-dashed focus:outline-offset-4 focus:outline-color-secondary active:border-color-secondary active:bg-color-purple-600
   `}
       whileHover={{ scale: isExpanded ? 1 : 1.03 }}
       whileTap={{
