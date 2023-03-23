@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 type TUseLevitateProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   initialY?: number;
   animateY?: number;
   duration?: number;
