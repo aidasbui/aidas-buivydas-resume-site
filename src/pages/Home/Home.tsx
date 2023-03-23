@@ -30,7 +30,10 @@ const Home = () => {
             key="courses"
             title="Courses"
             renderLeftIcon={() => (
-              <AcademicCap_SVG className="relative top-[0.2rem] h-6 w-6" />
+              <AcademicCap_SVG
+                aria-hidden="true"
+                className="relative top-[0.2rem] h-6 w-6"
+              />
             )}
           >
             <p>Zdrw</p>
@@ -39,7 +42,10 @@ const Home = () => {
             key="skills"
             title="Skills"
             renderLeftIcon={() => (
-              <CheckmarkCirle_SVG className="relative top-[0.2rem] h-6 w-6" />
+              <CheckmarkCirle_SVG
+                aria-hidden="true"
+                className="relative top-[0.2rem] h-6 w-6"
+              />
             )}
           >
             <p>Zdrw</p>

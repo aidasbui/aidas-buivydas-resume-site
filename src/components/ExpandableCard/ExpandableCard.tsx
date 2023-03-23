@@ -28,11 +28,19 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
     setIsHovered((prevState) => !prevState);
   };
 
+  const handleKeypress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      expandCardHandler();
+    }
+  };
+
   return (
     <motion.div
+      tabIndex={0}
+      onKeyDown={handleKeypress}
       className={`${
         isExpanded && expandedCardStyles
-      } h-full w-full max-w-sm transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 shadow-2xl transition-colors duration-75 hover:bg-color-purple-600 active:border-color-secondary active:bg-color-purple-600
+      } h-full w-full max-w-sm transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 shadow-2xl transition-colors duration-75 hover:bg-color-purple-600 focus:outline-dashed focus:outline-offset-4 focus:outline-color-secondary active:border-color-secondary active:bg-color-purple-600
   `}
       whileHover={{ scale: isExpanded ? 1 : 1.03 }}
       whileTap={{
@@ -42,6 +50,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       layout="position"
     >
       <motion.button
+        tabIndex={-1}
         aria-label={isExpanded ? `Expand ${title} card` : `Collapse ${title} card`}
         aria-controls="expandable card"
         aria-expanded={isExpanded ? 'true' : 'false'}
@@ -58,9 +67,9 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
             <h3 className="p-0 text-xl">{title}</h3>
           </motion.div>
           {isExpanded ? (
-            <ChevronUp_SVG className="w-6" />
+            <ChevronUp_SVG aria-hidden="true" className="w-6" />
           ) : (
-            <ChevronDown_SVG className="w-6" />
+            <ChevronDown_SVG aria-hidden="true" className="w-6" />
           )}
         </motion.div>
       </motion.button>
