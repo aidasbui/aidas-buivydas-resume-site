@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 type TButtonProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   type?: 'submit' | 'reset' | 'button' | undefined;
   to?: string;
   href?: string;
@@ -24,7 +24,7 @@ const Button = ({
   const innerLink = href?.includes('#');
 
   const buttonStyles =
-    'w-36 rounded-xl border-2 border-color-purple-700 bg-color-secondary p-2 font-vt323 text-2xl leading-none text-color-primary transition-colors duration-75 hover:border-color-purple-800 hover:bg-color-secondary/70 hover:text-color-purple-800 block';
+    'inline-block flex justify-center items-center w-36 rounded-xl border-2 border-color-purple-700 bg-color-secondary p-2 font-vt323 text-2xl leading-none text-color-primary transition-colors duration-75 hover:border-color-purple-500 block hover:brightness-[105%]';
 
   {
     if (outerLink) {
