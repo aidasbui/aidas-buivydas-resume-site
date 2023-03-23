@@ -1,9 +1,9 @@
+import { LayoutGroup, motion } from 'framer-motion';
 import React from 'react';
 
 import { ReactComponent as AcademicCap_SVG } from '../../assets/icons/academic-cap.svg';
 import { ReactComponent as CheckmarkCirle_SVG } from '../../assets/icons/github.svg';
-import Button from '../../components/Button';
-import ExpandableCardButton from '../../components/ExpandableCardButton';
+import ExpandableCard from '../../components/ExpandableCard';
 import { useLevitate as Levitate } from '../../hooks/useLevitate';
 import { TTextContent } from '../../types/text-content';
 
@@ -19,30 +19,37 @@ const Home = () => {
   return (
     <div className="w-full">
       <section>
-        <h2>
+        <motion.h2>
           <Levitate>{heroHeading}</Levitate>
-        </h2>
+        </motion.h2>
         <p className="whitespace-pre-line">{heroParagraph}</p>
       </section>
       <section className="flex flex-col items-center justify-evenly gap-5 py-16">
-        <ExpandableCardButton
-          title="Courses"
-          renderLeftIcon={() => (
-            <AcademicCap_SVG className="relative top-[0.2rem] h-6 w-6" />
-          )}
-        ></ExpandableCardButton>
-        <ExpandableCardButton
-          title="Skills"
-          renderLeftIcon={() => (
-            <CheckmarkCirle_SVG className="relative top-[0.2rem] h-6 w-6" />
-          )}
-        ></ExpandableCardButton>
-        {/* <ExpandableCardButton title="Internships" />
-        <ExpandableCardButton title="Hobbies" />
-        <ExpandableCardButton title="About This Page" /> */}
+        <LayoutGroup>
+          <ExpandableCard
+            key="courses"
+            title="Courses"
+            renderLeftIcon={() => (
+              <AcademicCap_SVG className="relative top-[0.2rem] h-6 w-6" />
+            )}
+          >
+            <p>Zdrw</p>
+          </ExpandableCard>
+          <ExpandableCard
+            key="skills"
+            title="Skills"
+            renderLeftIcon={() => (
+              <CheckmarkCirle_SVG className="relative top-[0.2rem] h-6 w-6" />
+            )}
+          >
+            <p>Zdrw</p>
+          </ExpandableCard>
+        </LayoutGroup>
       </section>
 
-      <Button to="/sraawfaw">Test</Button>
+      {/* <ExpandableCard title="Internships" />
+        <ExpandableCard title="Hobbies" />
+        <ExpandableCard title="About This Page" /> */}
     </div>
   );
 };
