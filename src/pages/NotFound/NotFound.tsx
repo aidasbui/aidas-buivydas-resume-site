@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ReactComponent as SVG_Katiniukas } from '../../assets/images/katiniukas.svg';
 import Button from '../../components/Button';
-import { useLevitate as Levitate } from '../../hooks/useLevitate';
+import { Levitate } from '../../hooks/useLevitate';
 import { useOverflowHidden } from '../../hooks/useOverflowHidden';
 import { routes } from '../../routes';
 

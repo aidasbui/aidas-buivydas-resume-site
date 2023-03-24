@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
 
 import { ReactComponent as ChevronDown_SVG } from '../../assets/icons/chevron-down.svg';
 import { ReactComponent as ChevronUp_SVG } from '../../assets/icons/chevron-up.svg';
-import { useLevitate as Levitate } from '../../hooks/useLevitate';
+import { Levitate } from '../../hooks/useLevitate';
 
 type TExpandableCardProps = {
   children?: ReactNode;
@@ -15,14 +15,19 @@ type TExpandableCardProps = {
 const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const cardRef = useRef<HTMLButtonElement | null>(null);
 
-  const expandedButtonStyles = ' text-color-secondary';
+  const expandedButtonStyles = 'text-color-secondary';
 
   const expandedCardStyles = '!bg-color-purple-600 border-color-secondary pb-4';
 
   const expandCardHandler = () => {
     setIsExpanded((prevState) => !prevState);
     window.scrollBy({ top: 1 }); //TO DO: Fix scroll progress not updating on body height change (framer updates values outside of the react render cycle for performance)
+    cardRef?.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
 
   const levitateIconHandler = () => {
@@ -48,7 +53,6 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         scale: isExpanded ? 1 : 0.97,
       }}
       style={{ borderRadius: '0.75rem' }}
-      layout="position"
     >
       <motion.button
         tabIndex={-1}
@@ -61,6 +65,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         onClick={expandCardHandler}
         onMouseOver={levitateIconHandler}
         onMouseOut={levitateIconHandler}
+        ref={cardRef}
       >
         <motion.div className="leading-0 flex items-center justify-between px-4">
           <motion.div className="flex justify-start gap-4">

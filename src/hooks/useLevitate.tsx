@@ -8,7 +8,7 @@ type TUseLevitateProps = {
   duration?: number;
 };
 
-export const useLevitate = ({
+const useLevitate = ({
   children,
   initialY = 0,
   animateY = -0.1,
@@ -29,3 +29,5 @@ export const useLevitate = ({
     </motion.span>
   );
 };
+
+export { useLevitate as Levitate };
