@@ -12,7 +12,7 @@ function ContactsSection() {
   return (
     <section className="align-start flex h-full w-full flex-col items-start justify-center gap-5 text-center ">
       <div className={anchorStyles} aria-label="Aidas Buivydas' location">
-        <MapPin_SVG aria-hidden="true" className="relative h-6 w-6" />
+        <MapPin_SVG aria-hidden="true" className="h-6 w-6" />
         Vilnius, Lithuania
       </div>
       <a
@@ -22,7 +22,7 @@ function ContactsSection() {
         rel="noopener noreferrer"
         aria-label="Aidas Buivydas' GitHub profile"
       >
-        <Github_SVG aria-hidden="true" className="relative h-6 w-6" />
+        <Github_SVG aria-hidden="true" className="h-6 w-6" />
         aidasbui
       </a>
       <a
@@ -32,7 +32,10 @@ function ContactsSection() {
         rel="noopener noreferrer"
         aria-label="Aidas Buivydas' LinkedIn profile"
       >
-        <LinkedIn_SVG aria-hidden="true" className="relative h-6 w-6" />
+        <LinkedIn_SVG
+          aria-hidden="true"
+          className="relative left-[2px] bottom-[2px] h-5 w-5"
+        />
         in/aidas-buivydas
       </a>
       <a
@@ -40,7 +43,7 @@ function ContactsSection() {
         href="tel:+37062421668"
         aria-label="Aidas Buivydas' phone number"
       >
-        <Phone_SVG aria-hidden="true" className="relative h-6 w-6" />
+        <Phone_SVG aria-hidden="true" className="h-6 w-6" />
         +37062421668
       </a>
     </section>
