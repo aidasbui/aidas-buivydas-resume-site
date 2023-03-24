@@ -57,7 +57,7 @@ const Home = () => {
                 />
               )}
             >
-              <p>
+              <p className="pb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
                 laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
                 hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
@@ -78,7 +78,7 @@ const Home = () => {
                 />
               )}
             >
-              <p>
+              <p className="pb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
                 laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
                 hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
@@ -99,7 +99,7 @@ const Home = () => {
                 />
               )}
             >
-              <p>
+              <p className="pb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
                 laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
                 hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
@@ -120,7 +120,7 @@ const Home = () => {
                 />
               )}
             >
-              <p>
+              <p className="pb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
                 laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
                 hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
@@ -141,7 +141,7 @@ const Home = () => {
                 />
               )}
             >
-              <p>
+              <p className="pb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
                 laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
                 hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
