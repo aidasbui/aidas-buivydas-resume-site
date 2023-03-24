@@ -38,6 +38,7 @@ const Button = ({
           whileTap={{
             scale: 0.97,
           }}
+          tabIndex={-1}
         >
           <a
             href={href}
@@ -45,7 +46,8 @@ const Button = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={ariaLabel}
-            className={`${buttonStyles} inline-block w-44 focus:outline-transparent`}
+            className={`${buttonStyles} w-44`}
+            tabIndex={0}
           >
             {children}
           </a>
