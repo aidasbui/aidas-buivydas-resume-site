@@ -22,6 +22,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
 
   const expandCardHandler = () => {
     setIsExpanded((prevState) => !prevState);
+    window.scrollBy({ top: 1 }); //TO DO: Fix scroll progress not updating on body height change (framer updates values outside of the react render cycle for performance)
   };
 
   const levitateIconHandler = () => {
