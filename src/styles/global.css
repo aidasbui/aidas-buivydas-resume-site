@@ -21,7 +21,7 @@
   }
 
   a {
-    @apply focus:outline-dashed focus:outline-offset-8 focus:outline-color-secondary;
+    @apply focus-visible:outline-dashed focus-visible:outline-offset-8 focus:outline-none focus-visible:outline-color-secondary;
   }
 
   h1,

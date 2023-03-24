@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 import { ReactComponent as Github_SVG } from '../../assets/icons/github.svg';
 import { ReactComponent as LinkedIn_SVG } from '../../assets/icons/linkedin.svg';
