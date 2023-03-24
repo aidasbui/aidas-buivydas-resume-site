@@ -1,14 +1,28 @@
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import React, { PropsWithChildren } from 'react';
+import React, { ReactNode } from 'react';
 
-const useParallaxScroll = ({ children }: PropsWithChildren) => {
+type TuseParallaxScroll = {
+  children: ReactNode;
+  transformPixelInput?: number[];
+  transformPercentOutput?: number[];
+};
+
+const useParallaxScroll = ({
+  children,
+  transformPixelInput = [0, 5000],
+  transformPercentOutput = [0, -30],
+}: TuseParallaxScroll) => {
   const { scrollY } = useScroll();
   const y = useSpring(scrollY, {
     stiffness: 600,
     damping: 70,
     mass: 0.1,
   });
-  const yRange = useTransform(y, [0, 5000], ['0%', '-30%']);
+  const yRange = useTransform(
+    y,
+    transformPixelInput,
+    transformPercentOutput.map((value) => value.toString() + '%'),
+  );
 
   return <motion.div style={{ y: yRange }}>{children}</motion.div>;
 };
