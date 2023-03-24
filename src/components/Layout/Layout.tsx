@@ -19,7 +19,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     damping: 70,
     mass: 0.1,
   });
-  const yRange = useTransform(y, [0, 5000], ['0%', '40%']);
+  const yRange = useTransform(y, [0, 5000], ['0%', '10%']);
 
   return (
     <div className="relative flex min-h-screen flex-col justify-between">

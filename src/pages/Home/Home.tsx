@@ -1,4 +1,4 @@
-import { LayoutGroup, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React from 'react';
 
 import AidasBuivydas_CV from '../../assets/files/Aidas-Buivydas-CV.pdf';
@@ -11,24 +11,24 @@ import { ReactComponent as SaveFloppy_SVG } from '../../assets/icons/save-floppy
 import Button from '../../components/Button';
 import ContactsSection from '../../components/ContactsSection';
 import ExpandableCard from '../../components/ExpandableCard';
-import { useLevitate as Levitate } from '../../hooks/useLevitate';
+import { Levitate } from '../../hooks/useLevitate';
 import { ParallaxScroll } from '../../hooks/useParallaxScroll';
 import { TTextContent } from '../../types/text-content';
 
 const Home = () => {
   const heroHeading: TTextContent = `Welcome!`;
 
-  const heroParagraph: TTextContent = `You've encountered my personal website.
+  const heroParagraph: TTextContent = `You've stumbled upon my personal website.
 
   I'm a front-end web developer, who works on bringing eye-pleasing UI solutions to end users with the help of React, TypeScript and a load of other tools.
   
-  I also make music! Feel free to check out a few of my recent DJ sets on MixCloud.`;
+  I also make music! You'll find a link to my DJ sets in the hobbies' section below.`;
 
   return (
     <div className="relative flex w-full flex-col gap-12">
-      <ParallaxScroll>
-        {/* TO DO: ParallaxScroll causes the height of the root div go up when cards are opened. Possible fix - wrap sections in separate ParallaxScrolls. Animation looks sexy though. ;) */}
-        <section className="flex w-full flex-col gap-12">
+      <ParallaxScroll transformPercentOutput={['0%', '-10%']} animationDirection="y">
+        {/* TO DO: ParallaxScroll's useTransform hook from framer-motion causes the height of the root div go up when cards are opened. I wrapped sections in separate ParallaxScrolls and gave different values to useTransform() via props to the ParallaxScroll that wraps the expandable cards' section to lessen the undesired effect, but also hinder the animation a little more, unfortunately. */}
+        <section className="mb-48 flex w-full flex-col gap-12">
           <div>
             <motion.h2>
               <Levitate>{heroHeading}</Levitate>
@@ -45,114 +45,110 @@ const Home = () => {
             </Button>
           </div>
         </section>
-        <section className="flex flex-col items-center justify-evenly gap-5 py-16">
-          <LayoutGroup>
-            <ExpandableCard
-              key="courses"
-              title="Courses"
-              renderLeftIcon={() => (
-                <AcademicCap_SVG
-                  aria-hidden="true"
-                  className="relative top-[0.2rem] h-6 w-6"
-                />
-              )}
-            >
-              <p className="pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
-                laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
-                hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
-                Eligendi, velit labore! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Unde accusamus iste deserunt fugiat saepe numquam sed
-                voluptatem minima pariatur! Nesciunt dolor soluta nam laboriosam sequi
-                illo consequuntur asperiores, facilis nostrum?
-              </p>
-            </ExpandableCard>
+      </ParallaxScroll>
 
-            <ExpandableCard
-              key="skills"
-              title="Skills"
-              renderLeftIcon={() => (
-                <CheckmarkCirle_SVG
-                  aria-hidden="true"
-                  className="relative top-[0.2rem] h-6 w-6"
-                />
-              )}
-            >
-              <p className="pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
-                laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
-                hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
-                Eligendi, velit labore! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Unde accusamus iste deserunt fugiat saepe numquam sed
-                voluptatem minima pariatur! Nesciunt dolor soluta nam laboriosam sequi
-                illo consequuntur asperiores, facilis nostrum?
-              </p>
-            </ExpandableCard>
+      <ParallaxScroll transformPercentOutput={['0%', '-5%']}>
+        <section className="mb-24 flex flex-col items-center justify-evenly gap-5">
+          <ExpandableCard
+            title="Courses"
+            renderLeftIcon={() => (
+              <AcademicCap_SVG
+                aria-hidden="true"
+                className="relative top-[0.2rem] h-6 w-6"
+              />
+            )}
+          >
+            <p className="pb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
+              laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
+              hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis? Eligendi,
+              velit labore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde
+              accusamus iste deserunt fugiat saepe numquam sed voluptatem minima pariatur!
+              Nesciunt dolor soluta nam laboriosam sequi illo consequuntur asperiores,
+              facilis nostrum?
+            </p>
+          </ExpandableCard>
 
-            <ExpandableCard
-              key="internships"
-              title="Internships"
-              renderLeftIcon={() => (
-                <Internship_SVG
-                  aria-hidden="true"
-                  className="relative top-[0.2rem] h-6 w-6"
-                />
-              )}
-            >
-              <p className="pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
-                laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
-                hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
-                Eligendi, velit labore! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Unde accusamus iste deserunt fugiat saepe numquam sed
-                voluptatem minima pariatur! Nesciunt dolor soluta nam laboriosam sequi
-                illo consequuntur asperiores, facilis nostrum?
-              </p>
-            </ExpandableCard>
+          <ExpandableCard
+            title="Skills"
+            renderLeftIcon={() => (
+              <CheckmarkCirle_SVG
+                aria-hidden="true"
+                className="relative top-[0.2rem] h-6 w-6"
+              />
+            )}
+          >
+            <p className="pb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
+              laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
+              hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis? Eligendi,
+              velit labore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde
+              accusamus iste deserunt fugiat saepe numquam sed voluptatem minima pariatur!
+              Nesciunt dolor soluta nam laboriosam sequi illo consequuntur asperiores,
+              facilis nostrum?
+            </p>
+          </ExpandableCard>
 
-            <ExpandableCard
-              key="hobbies"
-              title="Hobbies"
-              renderLeftIcon={() => (
-                <Coffee_SVG
-                  aria-hidden="true"
-                  className="relative top-[0.2rem] h-6 w-6"
-                />
-              )}
-            >
-              <p className="pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
-                laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
-                hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
-                Eligendi, velit labore! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Unde accusamus iste deserunt fugiat saepe numquam sed
-                voluptatem minima pariatur! Nesciunt dolor soluta nam laboriosam sequi
-                illo consequuntur asperiores, facilis nostrum?
-              </p>
-            </ExpandableCard>
+          <ExpandableCard
+            title="Internships"
+            renderLeftIcon={() => (
+              <Internship_SVG
+                aria-hidden="true"
+                className="relative top-[0.2rem] h-6 w-6"
+              />
+            )}
+          >
+            <p className="pb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
+              laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
+              hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis? Eligendi,
+              velit labore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde
+              accusamus iste deserunt fugiat saepe numquam sed voluptatem minima pariatur!
+              Nesciunt dolor soluta nam laboriosam sequi illo consequuntur asperiores,
+              facilis nostrum?
+            </p>
+          </ExpandableCard>
 
-            <ExpandableCard
-              key="about-this-page"
-              title="About this page"
-              renderLeftIcon={() => (
-                <GitBranch_SVG
-                  aria-hidden="true"
-                  className="relative top-[0.2rem] h-6 w-6"
-                />
-              )}
-            >
-              <p className="pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
-                laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
-                hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis?
-                Eligendi, velit labore! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Unde accusamus iste deserunt fugiat saepe numquam sed
-                voluptatem minima pariatur! Nesciunt dolor soluta nam laboriosam sequi
-                illo consequuntur asperiores, facilis nostrum?
-              </p>
-            </ExpandableCard>
-          </LayoutGroup>
+          <ExpandableCard
+            title="Hobbies"
+            renderLeftIcon={() => (
+              <Coffee_SVG aria-hidden="true" className="relative top-[0.2rem] h-6 w-6" />
+            )}
+          >
+            <p className="pb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
+              laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
+              hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis? Eligendi,
+              velit labore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde
+              accusamus iste deserunt fugiat saepe numquam sed voluptatem minima pariatur!
+              Nesciunt dolor soluta nam laboriosam sequi illo consequuntur asperiores,
+              facilis nostrum?
+            </p>
+          </ExpandableCard>
+
+          <ExpandableCard
+            title="About this page"
+            renderLeftIcon={() => (
+              <GitBranch_SVG
+                aria-hidden="true"
+                className="relative top-[0.2rem] h-6 w-6"
+              />
+            )}
+          >
+            <p className="pb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus
+              laudantium consequuntur iste a soluta blanditiis quisquam cumque provident
+              hic. Autem recusandae iusto dicta incidunt laboriosam blanditiis? Eligendi,
+              velit labore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde
+              accusamus iste deserunt fugiat saepe numquam sed voluptatem minima pariatur!
+              Nesciunt dolor soluta nam laboriosam sequi illo consequuntur asperiores,
+              facilis nostrum?
+            </p>
+          </ExpandableCard>
         </section>
+      </ParallaxScroll>
+
+      <ParallaxScroll transformPercentOutput={['0', '-50%']}>
         <div className="px-[1.1rem]">
           <ContactsSection />
         </div>
