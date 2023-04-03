@@ -5,6 +5,7 @@ import { ReactComponent as GitBranch_SVG } from '/src/assets/icons/git-branch.sv
 import { ReactComponent as Experience_SVG } from '/src/assets/icons/internship.svg';
 
 import { renderCompletedCourses } from '../coursesSectionData';
+import { renderExperiences } from '../experienceSectionData';
 import { renderSkillsList } from '../skillsSectionData';
 
 type THomeCardsData = {
@@ -37,7 +38,7 @@ export const homeCardsData: THomeCardsData = [
   {
     title: 'Experience',
     icon: Experience_SVG,
-    content: renderCompletedCourses, //TODO: add section content and render
+    content: renderExperiences,
     iconIsShiftedDown: true,
     // assets:,
   },
