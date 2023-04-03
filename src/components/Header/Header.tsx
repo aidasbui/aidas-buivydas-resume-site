@@ -5,7 +5,7 @@ import { ParallaxScroll } from '../../hooks/useParallaxScroll';
 const Header = () => {
   return (
     <ParallaxScroll>
-      <header className="top-0 left-0 z-50 flex h-full flex-col items-center justify-center py-5 px-8 text-center shadow-xl backdrop-blur-lg backdrop-opacity-50">
+      <header className="left-0 top-0 z-50 flex h-full flex-col items-center justify-center px-8 py-5 text-center shadow-xl backdrop-blur-lg backdrop-opacity-50">
         <div className="h-28 w-28 rounded-full border-2 border-color-purple-700 bg-color-purple-500">
           <img
             className="h-full w-full rounded-full object-cover"

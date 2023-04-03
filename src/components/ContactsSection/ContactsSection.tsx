@@ -34,7 +34,7 @@ function ContactsSection() {
       >
         <LinkedIn_SVG
           aria-hidden="true"
-          className="relative left-[2px] bottom-[2px] h-5 w-5"
+          className="relative bottom-[2px] left-[2px] h-5 w-5"
         />
         in/aidas-buivydas
       </a>

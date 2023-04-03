@@ -27,13 +27,13 @@ const Layout = ({ children }: PropsWithChildren) => {
         className="absolute -z-40 h-full w-full bg-color-primary bg-background-noise bg-center"
         style={{ backgroundPositionY: yRange }}
       />
-      <div className="top-0 left-0 z-50">
+      <div className="left-0 top-0 z-50">
         <Header />
       </div>
       <AnimatePresence>
         <ScrollProgress />
       </AnimatePresence>
-      <main className="mx-auto my-0 min-h-screen py-12 px-8">{children}</main>
+      <main className="mx-auto my-0 min-h-screen px-8 py-12">{children}</main>
       <div className="my-auto">
         <Footer />
       </div>
