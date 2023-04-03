@@ -19,7 +19,8 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
 
   const expandedButtonStyles = 'text-color-secondary';
 
-  const expandedCardStyles = '!bg-color-purple-600 border-color-secondary pb-4';
+  const expandedCardStyles =
+    '!bg-color-purple-600 !bg-opacity-50 border-color-secondary pb-4';
 
   const expandCardHandler = () => {
     setIsExpanded((prevState) => !prevState);
@@ -46,7 +47,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       onKeyDown={handleKeypress}
       className={`${
         isExpanded && expandedCardStyles
-      } h-full w-full max-w-sm transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 shadow-2xl transition-colors duration-75 hover:border-color-purple-500 hover:bg-color-purple-600 focus:outline-none focus-visible:outline-dashed focus-visible:outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:bg-color-purple-600
+      } h-full w-full max-w-sm transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 bg-opacity-50 shadow-2xl transition-colors duration-75 hover:border-color-purple-500 hover:bg-color-purple-600 hover:bg-opacity-50 focus:outline-none focus-visible:outline-dashed focus-visible:outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:bg-color-purple-600 active:bg-opacity-50
   `}
       whileHover={{ scale: isExpanded ? 1 : 1.03 }}
       whileTap={{
