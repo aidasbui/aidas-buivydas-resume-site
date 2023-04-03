@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="relative flex w-full flex-col gap-12">
       {/* TODO: implement prefers reduced motion with framer-motion */}
-      <ParallaxScroll transformPercentOutput={['0%', '-10%']} animationDirection="y">
+      <ParallaxScroll transformPercentOutput={['0%', '-10%']}>
         <HomeHeroSection />
       </ParallaxScroll>
 
@@ -17,6 +17,7 @@ const Home = () => {
         <ExpandableCards />
       </ParallaxScroll>
 
+      {/* TODO: conditionally render the below Parallax Scroll + ContactsSection code with useMediaQuery depending on screen size */}
       <ParallaxScroll transformPercentOutput={['0', '-50%']}>
         <div className="px-[1.1rem]">
           <ContactsSection />
