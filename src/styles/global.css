@@ -1,11 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=VT323&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --font-jetBrainsMono: 'JetBrains Mono';
-  --font-vt323: 'VT323';
-}
 
 @layer base {
   html {
@@ -13,7 +10,7 @@
   }
 
   body {
-    font-family: 'JetBrains Mono', sans-serif;
+    @apply font-jetbrainsMono;
     color: theme('colors.color-white');
     font-size: theme('fontSize.base');
     min-height: 100vh;

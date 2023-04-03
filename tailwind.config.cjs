@@ -13,8 +13,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        jetbrainsMono: ['var(--font-jetBrainsMono'],
-        vt323: ['var(--font-vt323)'],
+        jetbrainsMono: ['JetBrains\\ Mono'],
+        vt323: ['VT323'],
       },
       colors: {
         'color-primary': 'hsl(291,50%,10%)',
