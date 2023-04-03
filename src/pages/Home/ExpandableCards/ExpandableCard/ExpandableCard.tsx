@@ -2,9 +2,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React, { ReactNode, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
 
-import { ReactComponent as ChevronDown_SVG } from '../../assets/icons/chevron-down.svg';
-import { ReactComponent as ChevronUp_SVG } from '../../assets/icons/chevron-up.svg';
-import { Levitate } from '../../hooks/useLevitate';
+import { ReactComponent as ChevronDown_SVG } from '/src/assets/icons/chevron-down.svg';
+import { ReactComponent as ChevronUp_SVG } from '/src/assets/icons/chevron-up.svg';
+
+import { Levitate } from '../../../../hooks/useLevitate';
 
 type TExpandableCardProps = {
   children?: ReactNode;
