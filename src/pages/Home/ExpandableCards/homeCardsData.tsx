@@ -4,8 +4,8 @@ import { ReactComponent as Coffee_SVG } from '/src/assets/icons/coffee.svg';
 import { ReactComponent as GitBranch_SVG } from '/src/assets/icons/git-branch.svg';
 import { ReactComponent as Experience_SVG } from '/src/assets/icons/internship.svg';
 
-import { renderCompletedCourses } from '../courses';
-import { renderSkillsList } from '../skills';
+import { renderCompletedCourses } from '../coursesSectionData';
+import { renderSkillsList } from '../skillsSectionData';
 
 type THomeCardsData = {
   title: string;
