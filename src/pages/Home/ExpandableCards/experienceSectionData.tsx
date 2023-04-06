@@ -1,7 +1,8 @@
-import SourceryAcademyCertificate from '../../assets/files/Aidas-Buivydas_sourcery-academy-certificate.pdf';
-import { ReactComponent as BriefcaseCheck_SVG } from '../../assets/icons/briefcase-check.svg';
-import { ReactComponent as SaveFloppy_SVG } from '../../assets/icons/save-floppy.svg';
-import Button from '../../components/Button/Button';
+import SourceryAcademyCertificate from '/src/assets/files/Aidas-Buivydas_sourcery-academy-certificate.pdf';
+import { ReactComponent as BriefcaseCheck_SVG } from '/src/assets/icons/briefcase-check.svg';
+import { ReactComponent as SaveFloppy_SVG } from '/src/assets/icons/save-floppy.svg';
+
+import Button from '../../../components/Button/Button';
 
 type TExperienceSectionData = {
   experienceTitle: string;
@@ -29,7 +30,7 @@ export const experienceSectionData: TExperienceSectionData = [
 export const renderExperiences = () => {
   return (
     <section className="pb-4">
-      <ul className="px-8">
+      <ul>
         {experienceSectionData.map(
           ({
             experienceTitle,
@@ -39,12 +40,12 @@ export const renderExperiences = () => {
             experienceAsset,
           }) => {
             return (
-              <li key={experienceTitle}>
-                <div className="pb-6">
+              <li className="pb-4 " key={experienceTitle}>
+                <div className="pb-6 pl-10">
                   <h3 className="relative pb-2 font-jetbrainsMono text-base text-color-secondary">
                     <BriefcaseCheck_SVG
                       aria-hidden="true"
-                      className="relative -left-8 top-6 w-6"
+                      className="relative -left-10 top-6 w-6"
                     />
                     {experienceTitle}
                   </h3>

@@ -4,9 +4,11 @@ import { ReactComponent as Coffee_SVG } from '/src/assets/icons/coffee.svg';
 import { ReactComponent as GitBranch_SVG } from '/src/assets/icons/git-branch.svg';
 import { ReactComponent as Experience_SVG } from '/src/assets/icons/internship.svg';
 
-import { renderCompletedCourses } from '../coursesSectionData';
-import { renderExperiences } from '../experienceSectionData';
-import { renderSkillsList } from '../skillsSectionData';
+import { renderAboutThisPageSection } from './aboutThisPageSection';
+import { renderCompletedCourses } from './coursesSectionData';
+import { renderExperiences } from './experienceSectionData';
+import { renderHobbies } from './hobbiesSectionData';
+import { renderSkillsList } from './skillsSectionData';
 
 type THomeCardsData = {
   title: string;
@@ -26,34 +28,29 @@ export const homeCardsData: THomeCardsData = [
     icon: AcademicCap_SVG,
     content: renderCompletedCourses,
     iconIsShiftedDown: true,
-    // assets:,
   },
   {
     title: 'Skills',
     icon: CheckmarkCirle_SVG,
     content: renderSkillsList,
     iconIsShiftedDown: true,
-    // assets:,
   },
   {
     title: 'Experience',
     icon: Experience_SVG,
     content: renderExperiences,
     iconIsShiftedDown: true,
-    // assets:,
   },
   {
     title: 'Hobbies',
     icon: Coffee_SVG,
-    content: renderCompletedCourses, //TODO: add section content and render
+    content: renderHobbies,
     iconIsShiftedDown: false,
-    // assets:,
   },
   {
     title: 'About This Page',
     icon: GitBranch_SVG,
-    content: renderCompletedCourses, //TODO: add section content and render
+    content: renderAboutThisPageSection,
     iconIsShiftedDown: true,
-    // assets:,
   },
 ];

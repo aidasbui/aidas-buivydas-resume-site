@@ -1,4 +1,4 @@
-import { ReactComponent as Checkbox_SVG } from '../../assets/icons/checkbox.svg';
+import { ReactComponent as Checkbox_SVG } from '../../../assets/icons/checkbox.svg';
 
 type Tskills = string[];
 
@@ -22,12 +22,12 @@ export const skills: Tskills = [
 
 export const renderSkillsList = () => {
   return (
-    <section className="pb-4">
+    <section className="flex flex-col justify-center pb-6">
       <p className="pb-6">The skills I&apos;ve achieved:</p>
-      <ul className="px-8">
+      <ul className="flex flex-col px-8 md:h-80 md:flex-wrap md:items-start md:justify-center md:gap-x-48">
         {skills.map((skill) => {
           return (
-            <li key={skill}>
+            <li key={skill} className="">
               <h3 className="relative pb-2 pl-2 font-jetbrainsMono text-lg text-color-white">
                 <Checkbox_SVG
                   aria-hidden="true"
