@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { ReactNode, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
 
 import { ReactComponent as ChevronDown_SVG } from '/src/assets/icons/chevron-down.svg';
@@ -13,6 +13,51 @@ type TExpandableCardProps = {
   renderLeftIcon: () => JSX.Element;
 };
 
+type TResizablePanel = {
+  children: ReactNode;
+};
+
+/*
+  Replacer function to JSON.stringify that ignores
+  circular references and internal React properties.
+  https://github.com/facebook/react/issues/8669#issuecomment-531515508
+*/
+const ignoreCircularReferences = () => {
+  const seen = new WeakSet();
+  return (key: string, value: unknown) => {
+    if (key.startsWith('_')) return; // Don't compare React's internal props.
+    if (typeof value === 'object' && value !== null) {
+      if (seen.has(value)) return;
+      seen.add(value);
+    }
+    return value;
+  };
+};
+
+function ResizablePanel({ children }: TResizablePanel) {
+  const [ref, { height }] = useMeasure();
+
+  return (
+    <motion.div id={`${height}`} animate={{ height }} className="relative">
+      <AnimatePresence>
+        <motion.div
+          key={JSON.stringify(children, ignoreCircularReferences())}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <div ref={ref} className={`${height ? 'absolute' : 'relative'} px-4 md:px-12`}>
+            {children}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+//TODO: try implementing height animation with 0 to auto: https://www.joshuawootonn.com/how-to-animate-width-and-height-with-framer-motion
+
 const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -21,16 +66,27 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
   const expandedButtonStyles = 'text-color-secondary';
 
   const expandedCardStyles =
-    '!bg-color-purple-600 !bg-opacity-50 border-color-secondary pb-4';
+    '!bg-color-purple-600 !bg-opacity-50 border-color-secondary hover:border-color-secondary';
 
   const expandCardHandler = () => {
     setIsExpanded((prevState) => !prevState);
-    window.scrollBy({ top: 1 }); //TO DO: Fix scroll progress not updating on body height change (framer updates values outside of the react render cycle for performance)
-    cardRef?.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
   };
+
+  useEffect(() => {
+    if (!isExpanded || !cardRef) {
+      return;
+    }
+
+    const intoView = () => {
+      cardRef?.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    };
+    const scrollTimeout = setTimeout(intoView, 200);
+
+    return () => clearTimeout(scrollTimeout);
+  }, [isExpanded, cardRef]);
 
   const levitateIconHandler = () => {
     setIsHovered((prevState) => !prevState);
@@ -48,7 +104,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       onKeyDown={handleKeypress}
       className={`${
         isExpanded && expandedCardStyles
-      } h-full w-full max-w-sm transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 bg-opacity-50 shadow-2xl transition-colors duration-75 hover:border-color-purple-500 hover:bg-color-purple-600 hover:bg-opacity-50 focus:outline-none focus-visible:outline-dashed focus-visible:outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:bg-color-purple-600 active:bg-opacity-50
+      } h-full w-full transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 bg-opacity-50 shadow-2xl transition-colors duration-75 hover:border-color-purple-500 hover:bg-color-purple-600 hover:bg-opacity-50 focus:outline-none focus-visible:outline-dashed focus-visible:outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:bg-color-purple-600 active:bg-opacity-50 sm:max-w-lg md:max-w-3xl
   `}
       whileHover={{ scale: isExpanded ? 1 : 1.03 }}
       whileTap={{
@@ -69,7 +125,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         onMouseOut={levitateIconHandler}
         ref={cardRef}
       >
-        <motion.div className="leading-0 flex items-center justify-between px-4">
+        <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
           <motion.div className="flex justify-start gap-4">
             <>{isHovered ? <Levitate>{renderLeftIcon()}</Levitate> : renderLeftIcon()}</>
             <h3 className="p-0 text-xl">{title}</h3>
@@ -84,49 +140,6 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       <ResizablePanel>{isExpanded && children}</ResizablePanel>
     </motion.div>
   );
-};
-
-type TResizablePanel = {
-  children: ReactNode;
-};
-
-function ResizablePanel({ children }: TResizablePanel) {
-  const [ref, { height }] = useMeasure();
-
-  return (
-    <motion.div id={`${height}`} animate={{ height }} className="relative ">
-      <AnimatePresence>
-        <motion.div
-          key={JSON.stringify(children, ignoreCircularReferences())}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <div ref={ref} className={`${height ? 'absolute' : 'relative'} px-4`}>
-            {children}
-          </div>
-        </motion.div>
-      </AnimatePresence>
-    </motion.div>
-  );
-}
-
-/*
-  Replacer function to JSON.stringify that ignores
-  circular references and internal React properties.
-  https://github.com/facebook/react/issues/8669#issuecomment-531515508
-*/
-const ignoreCircularReferences = () => {
-  const seen = new WeakSet();
-  return (key: string, value: unknown) => {
-    if (key.startsWith('_')) return; // Don't compare React's internal props.
-    if (typeof value === 'object' && value !== null) {
-      if (seen.has(value)) return;
-      seen.add(value);
-    }
-    return value;
-  };
 };
 
 export default ExpandableCard;
