@@ -8,7 +8,7 @@ import { homeHeroData } from './homeHeroData';
 
 const HomeHeroSection = () => {
   return (
-    <section className="mb-48 flex w-full flex-col gap-12">
+    <section className="mb-48 flex w-full flex-col gap-12 sm:max-w-lg md:max-w-3xl lg:mb-12 lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
       <div>
         <motion.h2>
           <Levitate>{homeHeroData.heading}</Levitate>
