@@ -5,7 +5,7 @@ import { homeCardsData } from './homeCardsData';
 
 const ExpandableCards = () => {
   return (
-    <section className="mb-24 flex flex-col items-center justify-evenly gap-5">
+    <section className="mb-24 flex flex-col items-start justify-evenly gap-5">
       {homeCardsData.map((cardData) => {
         const { icon: ExpandableCardIcon } = cardData;
         const cardShiftedDownStyle = cardData.iconIsShiftedDown ? 'top-[0.2rem]' : '';
