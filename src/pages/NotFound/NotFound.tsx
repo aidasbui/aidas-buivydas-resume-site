@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { ReactComponent as SVG_Katiniukas } from '../../assets/images/katiniukas.svg';
+import { ReactComponent as Home_SVG } from '../../assets/icons/home.svg';
+import { ReactComponent as Katiniukas_SVG } from '../../assets/images/katiniukas.svg';
 import Button from '../../components/Button';
 import { Levitate } from '../../hooks/useLevitate';
 import { useOverflowHidden } from '../../hooks/useOverflowHidden';
@@ -19,10 +20,17 @@ const NotFound = () => {
       </div>
 
       <Button to={routes.home} ariaLabel="Navigate to the home page">
-        Home
+        <div className="relative flex items-center justify-center">
+          <Home_SVG
+            className="absolute -left-8 h-6 w-6"
+            aria-hidden="true"
+            aria-label="Navigate to the home page"
+          />
+          Home
+        </div>
       </Button>
 
-      <SVG_Katiniukas className="fixed bottom-0 -z-10 max-w-[120px]" />
+      <Katiniukas_SVG className="fixed bottom-0 -z-10 max-w-[120px]" />
     </div>
   );
 };
