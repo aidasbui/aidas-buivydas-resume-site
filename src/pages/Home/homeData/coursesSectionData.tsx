@@ -32,30 +32,32 @@ export const courses: Tcourses = [
 
 export const renderCompletedCourses = () => {
   return (
-    <section className="pb-4">
+    <section className="pb-4 lg:flex lg:flex-col lg:items-center">
       <p className="pb-6">
         Here are the courses I&apos;ve completed or am currently going through:
       </p>
-      <ul className="pl-10">
-        {courses.map(({ title, inProgress }) => {
-          return (
-            <li key={title} className="pb-4">
-              <h3 className="relative pb-0 font-jetbrainsMono text-lg text-color-secondary">
-                <Levitate>
-                  <Checkmark_SVG
-                    aria-hidden="true"
-                    className="absolute -left-10 -top-[1.1rem] w-6"
-                  />
-                </Levitate>
-                {title}
-              </h3>
-              <small className="text-xs text-gray-200 content-['']">
-                {inProgress ? '(In Progress)' : ''}
-              </small>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="lg:flex lg:justify-center">
+        <ul className="pl-10">
+          {courses.map(({ title, inProgress }) => {
+            return (
+              <li key={title} className="pb-4">
+                <h3 className="relative pb-0 font-jetbrainsMono text-lg text-color-secondary">
+                  <Levitate>
+                    <Checkmark_SVG
+                      aria-hidden="true"
+                      className="absolute -left-10 -top-[1.1rem] w-6"
+                    />
+                  </Levitate>
+                  {title}
+                </h3>
+                <small className="text-xs text-gray-200 content-['']">
+                  {inProgress ? '(In Progress)' : ''}
+                </small>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </section>
   );
 };
