@@ -4,7 +4,7 @@ import { ReactComponent as Coffee_SVG } from '/src/assets/icons/coffee.svg';
 import { ReactComponent as GitBranch_SVG } from '/src/assets/icons/git-branch.svg';
 import { ReactComponent as Experience_SVG } from '/src/assets/icons/internship.svg';
 
-import { renderAboutThisPageSection } from './aboutThisPageSection';
+import { renderAboutThisPageSection } from '../homeData/aboutThisPageSection';
 import { renderCompletedCourses } from './coursesSectionData';
 import { renderExperiences } from './experienceSectionData';
 import { renderHobbies } from './hobbiesSectionData';
