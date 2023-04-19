@@ -1,17 +1,15 @@
-import React from 'react';
-
-import { ReactComponent as Home_SVG } from '../../assets/icons/home.svg';
-import { ReactComponent as Katiniukas_SVG } from '../../assets/images/katiniukas.svg';
-import Button from '../../components/Button';
-import { Levitate } from '../../hooks/useLevitate';
-import { useOverflowHidden } from '../../hooks/useOverflowHidden';
-import { routes } from '../../routes';
+import { ReactComponent as Home_SVG } from 'assets/icons/home.svg';
+// import { ReactComponent as Katiniukas_SVG } from 'assets/images/katiniukas.svg';
+import Button from 'components/Button';
+import { Levitate } from 'hooks/useLevitate';
+import { useOverflowHidden } from 'hooks/useOverflowHidden';
+import { routes } from 'routes';
 
 const NotFound = () => {
   useOverflowHidden();
 
   return (
-    <div className="flex flex-col items-center justify-center text-center">
+    <div className="flex h-[50vh] flex-col items-center justify-center text-center">
       <div className="flex-between flex flex-col pb-12">
         <h1 className="text-8xl">
           <Levitate>404</Levitate>
@@ -29,8 +27,8 @@ const NotFound = () => {
           Home
         </div>
       </Button>
-
-      <Katiniukas_SVG className="fixed bottom-0 -z-10 max-w-[120px]" />
+      {/* TODO: fix Katiniukas_SVG not visible in Firefox in large screens and changes GithubSVG color due to inline styles that Katiniukas_SVG applies */}
+      {/* <Katiniukas_SVG className="fixed bottom-0 -z-10 max-w-[120px]" /> */}
     </div>
   );
 };
