@@ -40,9 +40,13 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      assets: `${__dirname}/src/assets`,
       components: `${__dirname}/src/components`,
+      constants: `${__dirname}/src/constants`,
+      context: `${__dirname}/src/context`,
       hooks: `${__dirname}/src/hooks`,
       pages: `${__dirname}/src/pages`,
+      routes: `${__dirname}/src/routes`,
       styles: `${__dirname}/src/styles`,
       types: `${__dirname}/src/types`,
       utils: `${__dirname}/src/utils`,
