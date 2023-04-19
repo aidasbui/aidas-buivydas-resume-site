@@ -1,8 +1,8 @@
+import Card from 'components/Card/Card';
+import Navigation from 'components/Navigation/Navigation';
 import React, { useState } from 'react';
+import ResizablePanel from 'utils/ResizablePanel';
 
-import Card from '../../../components/Card/Card';
-import Navigation from '../../../components/Navigation/Navigation';
-import ResizablePanel from '../../../utils/ResizablePanel';
 import { homeCardsData, TSectionTitle } from '../homeData/homeCardsData';
 
 const TabbedCards = () => {

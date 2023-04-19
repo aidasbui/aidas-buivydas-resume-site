@@ -1,4 +1,4 @@
-import { ReactComponent as Checkmark_SVG } from '/src/assets/icons/check.svg';
+import { ReactComponent as Checkmark_SVG } from 'assets/icons/check.svg';
 
 import { Levitate } from '../../../hooks/useLevitate';
 

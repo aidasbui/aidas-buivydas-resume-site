@@ -1,7 +1,7 @@
+import useMediaQuery from 'hooks/useMediaQuery';
+import { ParallaxScroll } from 'hooks/useParallaxScroll';
 import React from 'react';
 
-import useMediaQuery from '../../hooks/useMediaQuery';
-import { ParallaxScroll } from '../../hooks/useParallaxScroll';
 import ContactsSection from '../ContactsSection/ContactsSection';
 
 const Header = () => {

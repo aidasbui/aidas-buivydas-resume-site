@@ -1,8 +1,7 @@
-import SourceryAcademyCertificate from '/src/assets/files/Aidas-Buivydas_sourcery-academy-certificate.pdf';
-import { ReactComponent as BriefcaseCheck_SVG } from '/src/assets/icons/briefcase-check.svg';
-import { ReactComponent as SaveFloppy_SVG } from '/src/assets/icons/save-floppy.svg';
-
-import Button from '../../../components/Button/Button';
+import SourceryAcademyCertificate from 'assets/files/Aidas-Buivydas_sourcery-academy-certificate.pdf';
+import { ReactComponent as BriefcaseCheck_SVG } from 'assets/icons/briefcase-check.svg';
+import { ReactComponent as SaveFloppy_SVG } from 'assets/icons/save-floppy.svg';
+import Button from 'components/Button/Button';
 
 type TExperienceSectionData = {
   experienceTitle: string;

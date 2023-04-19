@@ -1,6 +1,6 @@
+import { homeCardsData, TSectionTitle } from 'pages/Home/homeData/homeCardsData';
 import React, { Dispatch } from 'react';
 
-import { homeCardsData, TSectionTitle } from '../../pages/Home/homeData/homeCardsData';
 import NavigationButton from './NavigationButton/NavigationButton';
 
 type TNavigationProps = {

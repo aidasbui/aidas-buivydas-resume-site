@@ -1,8 +1,7 @@
-import React from 'react';
+import ContactsSection from 'components/ContactsSection';
+import useMediaQuery from 'hooks/useMediaQuery';
+import { ParallaxScroll } from 'hooks/useParallaxScroll';
 
-import ContactsSection from '../../components/ContactsSection';
-import useMediaQuery from '../../hooks/useMediaQuery';
-import { ParallaxScroll } from '../../hooks/useParallaxScroll';
 import ExpandableCards from './ExpandableCards/ExpandableCards';
 import HomeHeroSection from './HomeHeroSection/HomeHeroSection';
 import TabbedCards from './TabbedCards/TabbedCards';

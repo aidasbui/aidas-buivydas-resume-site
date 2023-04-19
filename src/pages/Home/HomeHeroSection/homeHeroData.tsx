@@ -1,4 +1,4 @@
-import AidasBuivydas_CV from '../../../assets/files/Aidas-Buivydas-CV.pdf';
+import AidasBuivydas_CV from 'assets/files/Aidas-Buivydas-CV.pdf';
 
 type THomeHeroData = {
   heading: string;

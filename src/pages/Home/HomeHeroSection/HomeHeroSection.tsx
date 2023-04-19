@@ -1,9 +1,9 @@
+import { ReactComponent as SaveFloppy_SVG } from 'assets/icons/save-floppy.svg';
+import Button from 'components/Button';
 import { motion } from 'framer-motion';
+import { Levitate } from 'hooks/useLevitate';
 import React from 'react';
 
-import { ReactComponent as SaveFloppy_SVG } from '../../../assets/icons/save-floppy.svg';
-import Button from '../../../components/Button';
-import { Levitate } from '../../../hooks/useLevitate';
 import { homeHeroData } from './homeHeroData';
 
 const HomeHeroSection = () => {

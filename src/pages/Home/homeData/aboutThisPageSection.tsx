@@ -1,4 +1,4 @@
-import { ReactComponent as Gamepad_SVG } from '/src/assets/icons/gamepad.svg';
+import { ReactComponent as Gamepad_SVG } from 'assets/icons/gamepad.svg';
 
 type TAboutThisPageSectionData = {
   aboutThisPageDescription: string;

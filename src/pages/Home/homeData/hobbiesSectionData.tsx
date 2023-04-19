@@ -1,5 +1,5 @@
-import { ReactComponent as ExtLink_SVG } from '/src/assets/icons/external-link.svg';
-import { ReactComponent as Gamepad_SVG } from '/src/assets/icons/gamepad.svg';
+import { ReactComponent as ExtLink_SVG } from 'assets/icons/external-link.svg';
+import { ReactComponent as Gamepad_SVG } from 'assets/icons/gamepad.svg';
 
 type THobbiesSectionData = {
   hobbiesDescription: string;

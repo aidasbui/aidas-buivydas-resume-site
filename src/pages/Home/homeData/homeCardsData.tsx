@@ -1,10 +1,10 @@
-import { ReactComponent as AcademicCap_SVG } from '/src/assets/icons/academic-cap.svg';
-import { ReactComponent as CheckmarkCirle_SVG } from '/src/assets/icons/checkmark-circle.svg';
-import { ReactComponent as Coffee_SVG } from '/src/assets/icons/coffee.svg';
-import { ReactComponent as GitBranch_SVG } from '/src/assets/icons/git-branch.svg';
-import { ReactComponent as Experience_SVG } from '/src/assets/icons/internship.svg';
+import { ReactComponent as AcademicCap_SVG } from 'assets/icons/academic-cap.svg';
+import { ReactComponent as CheckmarkCirle_SVG } from 'assets/icons/checkmark-circle.svg';
+import { ReactComponent as Coffee_SVG } from 'assets/icons/coffee.svg';
+import { ReactComponent as GitBranch_SVG } from 'assets/icons/git-branch.svg';
+import { ReactComponent as Experience_SVG } from 'assets/icons/internship.svg';
+import { ObjectValues } from 'types/helpers';
 
-import { ObjectValues } from '../../../types/helpers';
 import { renderAboutThisPageSection } from '../homeData/aboutThisPageSection';
 import { renderCompletedCourses } from './coursesSectionData';
 import { renderExperiences } from './experienceSectionData';

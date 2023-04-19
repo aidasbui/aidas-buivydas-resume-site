@@ -1,9 +1,8 @@
+import { ReactComponent as AtSymbol_SVG } from 'assets/icons/at-symbol.svg';
+import { ReactComponent as Github_SVG } from 'assets/icons/github.svg';
+import { ReactComponent as LinkedIn_SVG } from 'assets/icons/linkedin.svg';
+import { ReactComponent as MapPin_SVG } from 'assets/icons/map-pin.svg';
 import React from 'react';
-
-import { ReactComponent as AtSymbol_SVG } from '../../assets/icons/at-symbol.svg';
-import { ReactComponent as Github_SVG } from '../../assets/icons/github.svg';
-import { ReactComponent as LinkedIn_SVG } from '../../assets/icons/linkedin.svg';
-import { ReactComponent as MapPin_SVG } from '../../assets/icons/map-pin.svg';
 
 function ContactsSection() {
   const anchorStyles =

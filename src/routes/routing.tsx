@@ -1,7 +1,7 @@
+import LoadingSpinner from 'components/LoadingSpinner';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import LoadingSpinner from '../components/LoadingSpinner';
 import { routeConfig } from './routeConfig';
 
 export const RouteManager = React.memo(() => {

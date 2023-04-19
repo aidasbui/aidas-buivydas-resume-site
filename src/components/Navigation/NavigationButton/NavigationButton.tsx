@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
+import { Levitate } from 'hooks/useLevitate';
+import { TSectionTitle } from 'pages/Home/homeData/homeCardsData';
 import React, { Dispatch, ReactNode, useState } from 'react';
-
-import { Levitate } from '../../../hooks/useLevitate';
-import { TSectionTitle } from '../../../pages/Home/homeData/homeCardsData';
 
 type TNavigationButtonProps = {
   children: ReactNode;

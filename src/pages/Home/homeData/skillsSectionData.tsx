@@ -1,4 +1,4 @@
-import { ReactComponent as Checkbox_SVG } from '../../../assets/icons/checkbox.svg';
+import { ReactComponent as Checkbox_SVG } from 'assets/icons/checkbox.svg';
 
 type Tskills = string[];
 

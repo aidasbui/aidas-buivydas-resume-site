@@ -1,11 +1,9 @@
+import { ReactComponent as ChevronDown_SVG } from 'assets/icons/chevron-down.svg';
+import { ReactComponent as ChevronUp_SVG } from 'assets/icons/chevron-up.svg';
 import { motion } from 'framer-motion';
+import { Levitate } from 'hooks/useLevitate';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-
-import { ReactComponent as ChevronDown_SVG } from '/src/assets/icons/chevron-down.svg';
-import { ReactComponent as ChevronUp_SVG } from '/src/assets/icons/chevron-up.svg';
-
-import { Levitate } from '../../../../hooks/useLevitate';
-import ResizablePanel from '../../../../utils/ResizablePanel';
+import ResizablePanel from 'utils/ResizablePanel';
 
 type TExpandableCardProps = {
   children?: ReactNode;

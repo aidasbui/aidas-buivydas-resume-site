@@ -1,11 +1,10 @@
-import './styles/global.css';
+import 'styles/global.css';
 
+import Layout from 'components/Layout';
 import React, { PropsWithChildren, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
-
-import Layout from './components/Layout';
-import { RouteManager } from './routes';
+import { RouteManager } from 'routes';
 
 const ScrollToTop = ({ children }: PropsWithChildren) => {
   const location = useLocation();

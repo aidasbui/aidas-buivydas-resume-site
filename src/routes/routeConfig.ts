@@ -1,7 +1,7 @@
 import { ComponentType, lazy, LazyExoticComponent } from 'react';
 
-const Home = lazy(() => import('../pages/Home'));
-const NotFound = lazy(() => import('../pages/NotFound'));
+const Home = lazy(() => import('pages/Home'));
+const NotFound = lazy(() => import('pages/NotFound'));
 
 export type TRoutes = Record<string, string>;
 
