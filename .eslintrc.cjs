@@ -21,6 +21,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    es2020: true,
     amd: true,
     node: true,
   },
@@ -48,5 +49,6 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
+    'no-console': 'warn',
   },
 };
