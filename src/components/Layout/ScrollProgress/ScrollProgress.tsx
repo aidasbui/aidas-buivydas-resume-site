@@ -1,9 +1,10 @@
 import { motion, useScroll } from 'framer-motion';
 import React from 'react';
 
+//TODO: Fix scroll progress not updating on page height change bug
+
 const ScrollProgress = () => {
   const { scrollYProgress } = useScroll();
-
   return (
     <motion.div
       key="scroll-progress"
