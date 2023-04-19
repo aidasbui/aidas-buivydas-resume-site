@@ -1,29 +1,30 @@
 import { motion } from 'framer-motion';
-import React, { ReactNode, useState } from 'react';
+import React, { Dispatch, ReactNode, useState } from 'react';
 
 import { Levitate } from '../../../hooks/useLevitate';
+import { TSectionTitle } from '../../../pages/Home/homeData/homeCardsData';
 
 type TNavigationButtonProps = {
   children: ReactNode;
-  title: string;
-  setActiveCard: () => void;
+  title: TSectionTitle;
+  setActiveTab: Dispatch<React.SetStateAction<TSectionTitle>>;
+  isActive: boolean;
   renderLeftIcon: () => JSX.Element;
 };
 
 const NavigationButton = ({
   children,
   title,
-  setActiveCard,
+  setActiveTab,
   renderLeftIcon,
+  isActive,
 }: TNavigationButtonProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [isActive, setIsActive] = useState<boolean>(false);
 
   const activeNavigationButtonStyles = '!text-color-secondary';
 
   const activeCardHandler = () => {
-    setIsActive(true);
-    setActiveCard();
+    setActiveTab(title);
   };
 
   const levitateIconHandler = () => {

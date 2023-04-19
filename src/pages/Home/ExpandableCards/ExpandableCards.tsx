@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { homeCardsData } from '../homeData/homeCardsData';
 import ExpandableCard from './ExpandableCard/ExpandableCard';
-import { homeCardsData } from './homeCardsData';
 
 const ExpandableCards = () => {
   return (

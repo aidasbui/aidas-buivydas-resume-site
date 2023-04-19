@@ -4,14 +4,25 @@ import { ReactComponent as Coffee_SVG } from '/src/assets/icons/coffee.svg';
 import { ReactComponent as GitBranch_SVG } from '/src/assets/icons/git-branch.svg';
 import { ReactComponent as Experience_SVG } from '/src/assets/icons/internship.svg';
 
+import { ObjectValues } from '../../../types/helpers';
 import { renderAboutThisPageSection } from '../homeData/aboutThisPageSection';
 import { renderCompletedCourses } from './coursesSectionData';
 import { renderExperiences } from './experienceSectionData';
 import { renderHobbies } from './hobbiesSectionData';
 import { renderSkillsList } from './skillsSectionData';
 
+const sectionTitlesEnum = {
+  COURSES: 'Courses',
+  SKILLS: 'Skills',
+  EXPERIENCE: 'Experience',
+  HOBBIES: 'Hobbies',
+  ABOUT_THIS_PAGE: 'About This Page',
+} as const;
+
+export type TSectionTitle = ObjectValues<typeof sectionTitlesEnum>;
+
 type THomeCardsData = {
-  title: string;
+  title: TSectionTitle;
   icon: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;

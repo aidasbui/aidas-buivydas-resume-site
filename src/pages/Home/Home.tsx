@@ -1,13 +1,11 @@
 import React from 'react';
 
-import Card from '../../components/Card/Card';
 import ContactsSection from '../../components/ContactsSection';
-import Navigation from '../../components/Navigation/Navigation';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { ParallaxScroll } from '../../hooks/useParallaxScroll';
-import { renderCompletedCourses } from './ExpandableCards/coursesSectionData';
 import ExpandableCards from './ExpandableCards/ExpandableCards';
 import HomeHeroSection from './HomeHeroSection/HomeHeroSection';
+import TabbedCards from './TabbedCards/TabbedCards';
 
 const Home = () => {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
@@ -21,21 +19,7 @@ const Home = () => {
 
       <div className="flex w-full flex-col">
         <ParallaxScroll transformPercentOutput={['0%', '-5%']}>
-          {isDesktop ? (
-            <div>
-              <Navigation />
-              <Card>
-                {
-                  <>
-                    <h2 className="pb-10">Section Title</h2>
-                    {renderCompletedCourses()}
-                  </>
-                }
-              </Card>
-            </div>
-          ) : (
-            <ExpandableCards />
-          )}
+          {isDesktop ? <TabbedCards /> : <ExpandableCards />}
         </ParallaxScroll>
 
         {!isDesktop && (

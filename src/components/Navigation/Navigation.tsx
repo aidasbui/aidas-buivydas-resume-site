@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 
-import { homeCardsData } from '../../pages/Home/ExpandableCards/homeCardsData';
+import { homeCardsData, TSectionTitle } from '../../pages/Home/homeData/homeCardsData';
 import NavigationButton from './NavigationButton/NavigationButton';
 
-const Navigation = () => {
+type TNavigationProps = {
+  setActiveTab: Dispatch<React.SetStateAction<TSectionTitle>>;
+  activeTab: TSectionTitle;
+};
+
+const Navigation = ({ setActiveTab, activeTab }: TNavigationProps) => {
   return (
     <nav className="flex gap-4">
       {homeCardsData.map((cardData) => {
@@ -14,7 +19,8 @@ const Navigation = () => {
           <NavigationButton
             key={title}
             title={title}
-            setActiveCard={() => console.log('Setting active card')}
+            setActiveTab={setActiveTab}
+            isActive={activeTab === title}
             renderLeftIcon={() => (
               <NavigationButtonIcon
                 aria-hidden="true"
