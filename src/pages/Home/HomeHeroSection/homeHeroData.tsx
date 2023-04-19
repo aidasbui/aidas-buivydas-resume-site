@@ -1,5 +1,3 @@
-import React from 'react';
-
 import AidasBuivydas_CV from '../../../assets/files/Aidas-Buivydas-CV.pdf';
 
 type THomeHeroData = {

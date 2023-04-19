@@ -1,4 +1,3 @@
-import { ReactComponent as CodeBracket_SVG } from '/src/assets/icons/code-bracket.svg';
 import { ReactComponent as Gamepad_SVG } from '/src/assets/icons/gamepad.svg';
 
 type TAboutThisPageSectionData = {
