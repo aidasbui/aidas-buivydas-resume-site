@@ -11,6 +11,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  preview: {
+    port: 3000,
+  },
   build: {
     rollupOptions: {
       input: {
@@ -19,5 +22,34 @@ export default defineConfig({
     },
     outDir: '../dist',
   },
-  plugins: [react(), eslint({ fix: true }), webfontDownload(), svgr(), svg()],
+  plugins: [
+    react(),
+    eslint({ fix: true }),
+    webfontDownload(
+      [
+        'https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap',
+        'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap',
+        'https://fonts.googleapis.com/css2?family=VT323&display=swap',
+      ],
+      {
+        injectAsStyleTag: false,
+      },
+    ),
+    svgr(),
+    svg(),
+  ],
+  resolve: {
+    alias: {
+      components: `${__dirname}/src/components`,
+      hooks: `${__dirname}/src/hooks`,
+      pages: `${__dirname}/src/pages`,
+      styles: `${__dirname}/src/styles`,
+      types: `${__dirname}/src/types`,
+      utils: `${__dirname}/src/utils`,
+    },
+  },
+  define: {
+    'process.env': process.env,
+    global: 'window',
+  },
 });
