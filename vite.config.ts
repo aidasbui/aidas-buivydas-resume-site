@@ -20,7 +20,7 @@ export default defineConfig({
         app: './public/index.html',
       },
     },
-    outDir: '../dist',
+    outDir: './dist',
   },
   plugins: [
     react(),
