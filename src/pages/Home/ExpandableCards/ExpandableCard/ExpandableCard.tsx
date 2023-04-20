@@ -40,7 +40,10 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
     };
     const scrollTimeout = setTimeout(intoView, 200);
 
-    return () => clearTimeout(scrollTimeout);
+    return () => {
+      clearTimeout(scrollTimeout);
+      cardRef.current = null;
+    };
   }, [isExpanded, cardRef]);
 
   const levitateIconHandler = () => {
