@@ -2,7 +2,7 @@ import { ReactComponent as ChevronDown_SVG } from 'assets/icons/chevron-down.svg
 import { ReactComponent as ChevronUp_SVG } from 'assets/icons/chevron-up.svg';
 import { motion } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import ResizablePanel from 'utils/ResizablePanel';
 
 type TExpandableCardProps = {
@@ -16,7 +16,7 @@ type TExpandableCardProps = {
 const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const cardRef = useRef<HTMLButtonElement | null>(null);
+  // const cardRef = useRef<HTMLButtonElement | null>(null);
 
   const expandedButtonStyles = 'text-color-secondary';
 
@@ -27,24 +27,24 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
     setIsExpanded((prevState) => !prevState);
   };
 
-  useEffect(() => {
-    if (!isExpanded || !cardRef) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!isExpanded || !cardRef) {
+  //     return;
+  //   }
 
-    const intoView = () => {
-      cardRef?.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    };
-    const scrollTimeout = setTimeout(intoView, 200);
+  //   const intoView = () => {
+  //     cardRef?.current?.scrollIntoView({
+  //       behavior: 'smooth',
+  //       block: 'start',
+  //     });
+  //   };
+  //   const scrollTimeout = setTimeout(intoView, 200);
 
-    return () => {
-      clearTimeout(scrollTimeout);
-      cardRef.current = null;
-    };
-  }, [isExpanded, cardRef]);
+  //   return () => {
+  //     clearTimeout(scrollTimeout);
+  //     cardRef.current = null;
+  //   };
+  // }, [isExpanded, cardRef]);
 
   const levitateIconHandler = () => {
     setIsHovered((prevState) => !prevState);
@@ -81,7 +81,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         onClick={expandCardHandler}
         onMouseOver={levitateIconHandler}
         onMouseOut={levitateIconHandler}
-        ref={cardRef}
+        // ref={cardRef}
       >
         <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
           <motion.div className="flex justify-start gap-4">
