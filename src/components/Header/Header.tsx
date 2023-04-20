@@ -1,3 +1,4 @@
+import aidasbuivydas_JPEG from 'assets/images/aidas-buivydas.jpeg';
 import useMediaQuery from 'hooks/useMediaQuery';
 import { ParallaxScroll } from 'hooks/useParallaxScroll';
 import React from 'react';
@@ -15,7 +16,7 @@ const Header = () => {
             <div className="h-28 w-28 rounded-full border-2 border-color-purple-700 bg-color-purple-500 lg:h-28 lg:w-28 ">
               <img
                 className="h-full w-full rounded-full object-cover"
-                src="/src/assets/images/aidas-buivydas.jpeg"
+                src={aidasbuivydas_JPEG}
                 alt="Aidas Buivydas"
               />
             </div>

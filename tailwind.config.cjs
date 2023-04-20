@@ -26,8 +26,8 @@ module.exports = {
         'color-white': 'hsl(0,0%,98%)',
       },
       backgroundImage: {
-        'aidas-bui-photo': "url('./src/assets/images/aidas-buivydas.jpeg')",
-        'background-noise': "url('./src/assets/images/background-noise.svg')",
+        'aidas-bui-photo': "url('assets/images/aidas-buivydas.jpeg')",
+        'background-noise': "url('assets/images/background-noise.svg')",
       },
     },
   },
