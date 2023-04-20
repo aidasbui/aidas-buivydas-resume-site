@@ -16,11 +16,14 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      input: {
-        app: './public/index.html',
+      output: {
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
       },
     },
     outDir: './dist',
+    emptyOutDir: true,
   },
   plugins: [
     react(),
