@@ -22,10 +22,10 @@ const Layout = ({ children }: PropsWithChildren) => {
   const yRange = useTransform(y, [0, 5000], ['0%', '10%']);
 
   return (
-    <div className="relative flex min-h-screen flex-col justify-between">
+    <div className="relative flex min-h-screen flex-col justify-between overflow-y-hidden">
       <motion.div
-        className="absolute -z-40 h-full w-full bg-color-primary bg-background-noise bg-center"
-        style={{ backgroundPositionY: yRange }}
+        className="absolute -top-96 -z-40 h-[300vh] w-full bg-color-primary bg-background-noise bg-center"
+        style={{ translateY: yRange }}
       />
       <div className="left-0 top-0 z-50">
         <Header />
