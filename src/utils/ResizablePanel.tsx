@@ -8,9 +8,7 @@ type TResizablePanel = {
 };
 
 const ResizablePanel = ({ children, title }: TResizablePanel) => {
-  const [ref, { height }] = useMeasure({
-    debounce: 100,
-  });
+  const [ref, { height }] = useMeasure();
 
   return (
     <motion.div id={`${height}`} animate={{ height }} className="relative w-full">
