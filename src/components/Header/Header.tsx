@@ -15,7 +15,7 @@ const Header = () => {
           <div className="flex w-full flex-col items-center lg:flex-row lg:gap-6">
             <div className="h-28 w-28 rounded-full border-2 border-color-purple-700 bg-color-purple-500 lg:h-28 lg:w-28 ">
               <img
-                className="h-full w-full rounded-full object-cover"
+                className="h-[200px] w-full rounded-full object-cover"
                 src={aidasbuivydas_JPEG}
                 alt="Aidas Buivydas"
               />
