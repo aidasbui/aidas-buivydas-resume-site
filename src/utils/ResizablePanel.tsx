@@ -9,7 +9,7 @@ type TResizablePanel = {
 
 const ResizablePanel = ({ children, title }: TResizablePanel) => {
   const [ref, { height }] = useMeasure({
-    debounce: 100,
+    debounce: 200,
     scroll: false,
   });
 
@@ -21,7 +21,7 @@ const ResizablePanel = ({ children, title }: TResizablePanel) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.1 }}
           className="lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start"
         >
           <div
