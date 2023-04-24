@@ -44,7 +44,7 @@ const NavigationButton = ({
       aria-expanded={isActive ? 'true' : 'false'}
       className={`${
         isActive && activeNavigationButtonStyles
-      } flex h-16 w-full items-center justify-center rounded-xl border-none text-center transition-colors duration-75 hover:text-color-secondary focus:outline-none focus-visible:outline-dashed focus-visible:-outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:text-color-secondary`}
+      } flex h-16 w-full items-center justify-center rounded-xl border-none text-center transition-colors duration-75 focus:outline-none focus-visible:outline-dashed focus-visible:-outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:text-color-secondary [@media(hover:hover)]:hover:text-color-secondary`}
       onClick={activeCardHandler}
       onMouseOver={levitateIconHandler}
       onMouseOut={levitateIconHandler}

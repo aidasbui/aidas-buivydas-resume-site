@@ -2,7 +2,7 @@ import { ReactComponent as ChevronDown_SVG } from 'assets/icons/chevron-down.svg
 import { ReactComponent as ChevronUp_SVG } from 'assets/icons/chevron-up.svg';
 import { motion } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import ResizablePanel from 'utils/ResizablePanel';
 
 type TExpandableCardProps = {
@@ -14,47 +14,54 @@ type TExpandableCardProps = {
 //TODO: try implementing height animation with 0 to auto: https://www.joshuawootonn.com/how-to-animate-width-and-height-with-framer-motion
 
 const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProps) => {
+  const [hasTouch, setHasTouch] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  // const cardRef = useRef<HTMLButtonElement | null>(null);
+  const cardRef = useRef<HTMLButtonElement | null>(null);
 
   const expandedButtonStyles = 'text-color-secondary';
 
   const expandedCardStyles =
-    '!bg-color-purple-600 !bg-opacity-50 border-color-secondary hover:border-color-secondary';
+    '!bg-color-purple-600 !bg-opacity-50 [@media(hover:hover)]:hover:border-color-secondary border-color-purple-500';
 
   const expandCardHandler = () => {
-    setIsExpanded((prevState) => !prevState);
+    setIsExpanded((wasExpanded) => !wasExpanded);
   };
 
-  // useEffect(() => {
-  //   if (!isExpanded || !cardRef) {
-  //     return;
-  //   }
-
-  //   const intoView = () => {
-  //     cardRef?.current?.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //     });
-  //   };
-  //   const scrollTimeout = setTimeout(intoView, 200);
-
-  //   return () => {
-  //     clearTimeout(scrollTimeout);
-  //     cardRef.current = null;
-  //   };
-  // }, [isExpanded, cardRef]);
+  const touchStartHandler = () => {
+    setHasTouch(true);
+  };
 
   const levitateIconHandler = () => {
-    setIsHovered((prevState) => !prevState);
+    if (!hasTouch) {
+      setIsHovered((wasHovered) => !wasHovered);
+    }
   };
 
   const handleKeypress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
-      expandCardHandler();
+      setIsExpanded((wasExpanded) => !wasExpanded);
     }
   };
+
+  useEffect(() => {
+    if (!isExpanded || !cardRef) {
+      return;
+    }
+
+    const intoView = () => {
+      cardRef?.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    };
+    const scrollTimeout = setTimeout(intoView, 200);
+
+    return () => {
+      clearTimeout(scrollTimeout);
+      cardRef.current = null;
+    };
+  }, [isExpanded, cardRef]);
 
   return (
     <motion.div
@@ -62,7 +69,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       onKeyDown={handleKeypress}
       className={`${
         isExpanded && expandedCardStyles
-      } h-full w-full transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 bg-opacity-50 shadow-2xl transition-colors duration-75 hover:border-color-purple-500 hover:bg-color-purple-600 hover:bg-opacity-50 focus:outline-none focus-visible:outline-dashed focus-visible:outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:bg-color-purple-600 active:bg-opacity-50 sm:max-w-lg md:max-w-3xl
+      } h-full w-full transform-gpu overflow-hidden rounded-xl border-2 bg-color-purple-800 bg-opacity-50 shadow-2xl transition-colors duration-75 focus:outline-none focus-visible:outline-dashed focus-visible:outline-offset-8 focus-visible:outline-color-secondary active:border-color-secondary active:bg-color-purple-600 active:bg-opacity-50 sm:max-w-lg md:max-w-3xl [@media(hover:hover)]:hover:border-color-purple-500 [@media(hover:hover)]:hover:bg-color-purple-600 [@media(hover:hover)]:hover:bg-opacity-50
   `}
       whileHover={{ scale: isExpanded ? 1 : 1.03 }}
       whileTap={{
@@ -81,11 +88,18 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         onClick={expandCardHandler}
         onMouseOver={levitateIconHandler}
         onMouseOut={levitateIconHandler}
-        // ref={cardRef}
+        onTouchStart={touchStartHandler}
+        ref={cardRef}
       >
         <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
           <motion.div className="flex justify-start gap-4">
-            <>{isHovered ? <Levitate>{renderLeftIcon()}</Levitate> : renderLeftIcon()}</>
+            <>
+              {isHovered || isExpanded ? (
+                <Levitate>{renderLeftIcon()}</Levitate>
+              ) : (
+                renderLeftIcon()
+              )}
+            </>
             <h3 className="p-0 text-xl">{title}</h3>
           </motion.div>
           {isExpanded ? (
