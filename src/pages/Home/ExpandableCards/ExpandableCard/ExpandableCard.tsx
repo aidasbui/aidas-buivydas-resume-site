@@ -109,7 +109,10 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
           )}
         </motion.div>
       </motion.button>
-      <ResizablePanel title={`${title}-expandable-card-${Math.random()}`}>
+      <ResizablePanel
+        active={isExpanded}
+        title={`${title}-expandable-card-${Math.random()}`}
+      >
         {isExpanded && children}
       </ResizablePanel>
     </motion.div>

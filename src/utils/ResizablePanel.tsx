@@ -5,9 +5,10 @@ import useMeasure from 'react-use-measure';
 type TResizablePanel = {
   children: ReactNode;
   title: string;
+  active: boolean;
 };
 
-const ResizablePanel = ({ children, title }: TResizablePanel) => {
+const ResizablePanel = ({ children, title, active }: TResizablePanel) => {
   const [ref, { height }] = useMeasure({
     debounce: 200,
     scroll: false,
@@ -27,7 +28,7 @@ const ResizablePanel = ({ children, title }: TResizablePanel) => {
           <div
             ref={ref}
             className={`${
-              height ? 'absolute' : 'relative'
+              active ? 'absolute' : 'relative'
             } flex flex-col px-4 md:px-12 lg:w-full`}
           >
             {children}
