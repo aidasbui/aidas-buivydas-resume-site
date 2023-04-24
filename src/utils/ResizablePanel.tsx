@@ -8,13 +8,16 @@ type TResizablePanel = {
 };
 
 const ResizablePanel = ({ children, title }: TResizablePanel) => {
-  const [ref, { height }] = useMeasure();
+  const [ref, { height }] = useMeasure({
+    debounce: 100,
+    scroll: false,
+  });
 
   return (
     <motion.div id={`${height}`} animate={{ height }} className="relative w-full">
       <AnimatePresence>
         <motion.div
-          key={title}
+          key={`${title}-${Math.random()}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
