@@ -2,34 +2,20 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React, { ReactNode } from 'react';
 import useMeasure from 'react-use-measure';
 
-/*
-    Replacer function to JSON.stringify that ignores
-    circular references and internal React properties.
-    https://github.com/facebook/react/issues/8669#issuecomment-531515508
-  */
-// const ignoreCircularReferences = () => {
-//   const seen = new WeakSet();
-//   return (key: string, value: unknown) => {
-//     if (key.startsWith('_')) return; // Don't compare React's internal props.
-//     if (typeof value === 'object' && value !== null) {
-//       if (seen.has(value)) return;
-//       seen.add(value);
-//     }
-//     return value;
-//   };
-// };
-
 type TResizablePanel = {
   children: ReactNode;
   title: string;
 };
 
 const ResizablePanel = ({ children, title }: TResizablePanel) => {
-  const [ref, { height }] = useMeasure();
+  const [ref, { height }] = useMeasure({
+    debounce: 200,
+    scroll: false,
+  });
 
   return (
     <motion.div id={`${height}`} animate={{ height }} className="relative w-full">
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         <motion.div
           key={title}
           initial={{ opacity: 0 }}
@@ -40,7 +26,9 @@ const ResizablePanel = ({ children, title }: TResizablePanel) => {
         >
           <div
             ref={ref}
-            className={`${height ? 'absolute' : 'relative'} px-4 md:px-12 lg:w-full`}
+            className={`${
+              height ? 'absolute' : 'relative'
+            } flex flex-col px-4 md:px-12 lg:w-full`}
           >
             {children}
           </div>

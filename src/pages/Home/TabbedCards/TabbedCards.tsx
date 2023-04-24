@@ -13,8 +13,8 @@ const TabbedCards = () => {
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
       <Card>
         <div className="flex w-full flex-col items-center justify-center">
-          <h1 className="pb-8">{activeTab}</h1>
-          <ResizablePanel>
+          <ResizablePanel title={activeTab}>
+            <h1 className="self-center pb-8">{activeTab}</h1>
             {homeCardsData
               .find((sectionData) => sectionData.title === activeTab)
               ?.content()}
