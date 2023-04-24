@@ -27,13 +27,13 @@ const Layout = ({ children }: PropsWithChildren) => {
     mass: 0.1,
   });
 
-  const yRange = useTransform(y, [offsetTop - 2000, offsetTop + 2000], ['0%', '10%']);
+  const yRange = useTransform(y, [offsetTop - 2000, offsetTop + 2000], ['0%', '5%']);
 
   return (
     <div className="relative flex min-h-screen flex-col justify-between overflow-y-hidden">
       <motion.div
         ref={ref}
-        className="absolute -top-[50rem] -z-40 h-[300vh] w-full bg-color-primary bg-background-noise bg-center"
+        className="absolute -top-[50rem] -z-40 h-[500vh] w-full bg-color-primary bg-background-noise bg-center"
         style={{ translateY: yRange }}
       />
       <div className="left-0 top-0 z-50">
