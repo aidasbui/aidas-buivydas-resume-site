@@ -18,7 +18,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   useLayoutEffect(() => {
     if (!ref.current) return;
-    setOffsetTop(ref?.current?.offsetTop);
+    setOffsetTop(ref.current.offsetTop);
   }, [ref]);
 
   const y = useSpring(scrollY, {
@@ -33,7 +33,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     <div className="relative flex min-h-screen flex-col justify-between overflow-y-hidden">
       <motion.div
         ref={ref}
-        className="absolute -top-[50rem] -z-40 h-[500vh] w-full bg-color-primary bg-background-noise bg-center"
+        className="absolute -top-[50rem] -z-40 h-[600rem] w-full bg-color-primary bg-background-noise bg-center"
         style={{ translateY: yRange }}
       />
       <div className="left-0 top-0 z-50">
