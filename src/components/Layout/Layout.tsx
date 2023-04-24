@@ -7,7 +7,7 @@ import ScrollProgress from './ScrollProgress';
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="relative flex min-h-screen flex-col justify-between">
+    <div className="relative flex min-h-screen flex-col justify-between ">
       <motion.div className="absolute top-0 -z-40 h-full w-full bg-color-primary bg-background-noise bg-center" />
       <div className="left-0 top-0 z-50">
         <Header />

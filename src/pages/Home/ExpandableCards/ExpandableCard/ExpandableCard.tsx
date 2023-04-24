@@ -1,9 +1,9 @@
 import { ReactComponent as ChevronDown_SVG } from 'assets/icons/chevron-down.svg';
 import { ReactComponent as ChevronUp_SVG } from 'assets/icons/chevron-up.svg';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
 import React, { ReactNode, useRef, useState } from 'react';
-import ResizablePanel from 'utils/ResizablePanel';
+// import ResizablePanel from 'utils/ResizablePanel';
 
 type TExpandableCardProps = {
   children?: ReactNode;
@@ -17,7 +17,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
   const [hasTouch, setHasTouch] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const cardRef = useRef<HTMLButtonElement | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
 
   const expandedButtonStyles = 'text-color-secondary';
 
@@ -65,6 +65,8 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
 
   return (
     <motion.div
+      layout
+      transition={{ duration: 0.2 }}
       tabIndex={0}
       onKeyDown={handleKeypress}
       className={`${
@@ -77,44 +79,70 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       }}
       style={{ borderRadius: '0.75rem' }}
     >
-      <motion.button
-        tabIndex={-1}
-        aria-label={isExpanded ? `Expand ${title} card` : `Collapse ${title} card`}
-        aria-controls="expandable card"
-        aria-expanded={isExpanded ? 'true' : 'false'}
-        className={`h-16 w-full items-center justify-between border-none text-center ${
-          isExpanded && expandedButtonStyles
-        }`}
-        onClick={expandCardHandler}
-        onMouseOver={levitateIconHandler}
-        onMouseOut={levitateIconHandler}
-        onTouchStart={touchStartHandler}
-        ref={cardRef}
-      >
-        <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
-          <motion.div className="flex justify-start gap-4">
-            <>
-              {isHovered || isExpanded ? (
-                <Levitate>{renderLeftIcon()}</Levitate>
-              ) : (
-                renderLeftIcon()
-              )}
-            </>
-            <h3 className="p-0 text-xl">{title}</h3>
+      <motion.div layout="position">
+        <motion.button
+          layout="position"
+          tabIndex={-1}
+          aria-label={isExpanded ? `Expand ${title} card` : `Collapse ${title} card`}
+          aria-controls="expandable card"
+          aria-expanded={isExpanded ? 'true' : 'false'}
+          className={`h-16 w-full items-center justify-between border-none text-center ${
+            isExpanded && expandedButtonStyles
+          }`}
+          onClick={expandCardHandler}
+          onMouseOver={levitateIconHandler}
+          onMouseOut={levitateIconHandler}
+          onTouchStart={touchStartHandler}
+        >
+          <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
+            <motion.div className="flex justify-start gap-4">
+              <>
+                {isHovered || isExpanded ? (
+                  <Levitate>{renderLeftIcon()}</Levitate>
+                ) : (
+                  renderLeftIcon()
+                )}
+              </>
+              <h3 className="p-0 text-xl">{title}</h3>
+            </motion.div>
+            {isExpanded ? (
+              <ChevronUp_SVG aria-hidden="true" className="w-6" />
+            ) : (
+              <ChevronDown_SVG aria-hidden="true" className="w-6" />
+            )}
           </motion.div>
-          {isExpanded ? (
-            <ChevronUp_SVG aria-hidden="true" className="w-6" />
-          ) : (
-            <ChevronDown_SVG aria-hidden="true" className="w-6" />
-          )}
-        </motion.div>
-      </motion.button>
-      <ResizablePanel
+        </motion.button>
+        {/* <ResizablePanel
         active={isExpanded}
         title={`${title}-expandable-card-${Math.random()}`}
       >
         {isExpanded && children}
-      </ResizablePanel>
+      </ResizablePanel> */}
+        <div className="relative overflow-hidden lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start">
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                layout="position"
+                ref={cardRef}
+                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="relatve w-full"
+              >
+                {/* TODO: style ExpandableCard insides to what they were before; fix distortions on close (including background */}
+                <div
+                  className={`${
+                    isExpanded ? 'relative' : 'absolute'
+                  } flex flex-col px-4 md:px-12 lg:w-full`}
+                >
+                  {children}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
