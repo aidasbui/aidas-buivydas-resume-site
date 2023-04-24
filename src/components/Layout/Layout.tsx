@@ -6,30 +6,9 @@ import Header from '../Header';
 import ScrollProgress from './ScrollProgress';
 
 const Layout = ({ children }: PropsWithChildren) => {
-  // const ref = useRef<HTMLDivElement | null>(null);
-  // const [offsetTop, setOffsetTop] = useState(0);
-  // const { scrollY } = useScroll();
-
-  // useLayoutEffect(() => {
-  //   if (!ref.current) return;
-  //   setOffsetTop(ref.current.offsetTop);
-  // }, [ref]);
-
-  // const y = useSpring(scrollY, {
-  //   stiffness: 300,
-  //   damping: 70,
-  //   mass: 0.1,
-  // });
-
-  // const yRange = useTransform(y, [offsetTop - 2000, offsetTop + 2000], ['0%', '5%']);
-
   return (
-    <div className="relative flex min-h-screen flex-col justify-between overflow-y-hidden">
-      <motion.div
-        // ref={ref}
-        className="absolute top-0 -z-40 h-full w-full bg-color-primary bg-background-noise bg-center"
-        // style={{ translateY: yRange }}
-      />
+    <div className="relative flex min-h-screen flex-col justify-between">
+      <motion.div className="absolute top-0 -z-40 h-full w-full bg-color-primary bg-background-noise bg-center" />
       <div className="left-0 top-0 z-50">
         <Header />
       </div>
