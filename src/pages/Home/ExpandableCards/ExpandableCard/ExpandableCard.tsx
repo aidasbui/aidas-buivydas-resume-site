@@ -90,6 +90,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         onMouseOver={levitateIconHandler}
         onMouseOut={levitateIconHandler}
         onTouchStart={touchStartHandler}
+        style={{ willChange }}
       >
         <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
           <motion.div className="flex justify-start gap-4">

@@ -1,4 +1,4 @@
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform, useWillChange } from 'framer-motion';
 import React, { ReactNode } from 'react';
 
 type TuseParallaxScroll = {
@@ -14,6 +14,7 @@ const useParallaxScroll = ({
   transformPercentOutput = ['0', '-10%'],
   animationDirection = 'y',
 }: TuseParallaxScroll) => {
+  const willChange = useWillChange();
   const { scrollYProgress } = useScroll();
   const y = useSpring(scrollYProgress, {
     stiffness: 600,
@@ -23,7 +24,9 @@ const useParallaxScroll = ({
   const yRange = useTransform(y, transformPixelInput, transformPercentOutput);
 
   return (
-    <motion.div style={{ [animationDirection]: yRange, position: 'relative' }}>
+    <motion.div
+      style={{ [animationDirection]: yRange, position: 'relative', willChange }}
+    >
       {children}
     </motion.div>
   );

@@ -14,7 +14,7 @@ const ExpandableCards = () => {
 
           return (
             <ExpandableCard
-              key={`${cardData.title}`}
+              key={`${cardData.title}-expandableCard${Math.random()}`}
               title={cardData.title}
               renderLeftIcon={() => (
                 <ExpandableCardIcon
