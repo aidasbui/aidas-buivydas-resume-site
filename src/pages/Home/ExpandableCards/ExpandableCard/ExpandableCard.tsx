@@ -2,8 +2,7 @@ import { ReactComponent as ChevronDown_SVG } from 'assets/icons/chevron-down.svg
 import { ReactComponent as ChevronUp_SVG } from 'assets/icons/chevron-up.svg';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
-import React, { ReactNode, useRef, useState } from 'react';
-// import ResizablePanel from 'utils/ResizablePanel';
+import React, { ReactNode, useState } from 'react';
 
 type TExpandableCardProps = {
   children?: ReactNode;
@@ -17,7 +16,6 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
   const [hasTouch, setHasTouch] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const cardRef = useRef<HTMLDivElement | null>(null);
 
   const expandedButtonStyles = 'text-color-secondary';
 
@@ -118,17 +116,17 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         {isExpanded && children}
       </ResizablePanel> */}
       <motion.div className="relative overflow-hidden lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start">
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           {isExpanded && (
             <motion.div
-              ref={cardRef}
               transition={{ duration: 0.2 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="relatve w-full"
+              key={title}
             >
-              {/* TODO: style ExpandableCard insides to what they were before; fix distortions on close (including background */}
+              {/* TODO: style ExpandableCard insides to what they were before; fix distortions on close */}
               <div className={`flex flex-col px-4 md:px-12 lg:w-full`}>{children}</div>
             </motion.div>
           )}
