@@ -13,6 +13,15 @@
     font-size: theme('fontSize.base');
     min-height: 100%;
     @apply subpixel-antialiased;
+    @apply bg-color-primary;
+    @apply bg-background-noise;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center;
+    background-attachment: fixed;
   }
 
   a {
