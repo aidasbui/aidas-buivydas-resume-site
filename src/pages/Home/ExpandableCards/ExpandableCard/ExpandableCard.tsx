@@ -1,6 +1,6 @@
 import { ReactComponent as ChevronDown_SVG } from 'assets/icons/chevron-down.svg';
 import { ReactComponent as ChevronUp_SVG } from 'assets/icons/chevron-up.svg';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useWillChange } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
 import React, { ReactNode, useState } from 'react';
 
@@ -13,6 +13,7 @@ type TExpandableCardProps = {
 //TODO: try implementing height animation with 0 to auto: https://www.joshuawootonn.com/how-to-animate-width-and-height-with-framer-motion
 
 const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProps) => {
+  const willChange = useWillChange();
   const [hasTouch, setHasTouch] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -75,10 +76,9 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       whileTap={{
         scale: isExpanded ? 1 : 0.97,
       }}
-      style={{ borderRadius: '0.75rem' }}
+      style={{ borderRadius: '0.75rem', willChange }}
     >
       <motion.button
-        layout
         tabIndex={-1}
         aria-label={isExpanded ? `Expand ${title} card` : `Collapse ${title} card`}
         aria-controls="expandable card"
