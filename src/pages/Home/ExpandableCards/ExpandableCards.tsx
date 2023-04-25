@@ -1,4 +1,4 @@
-import { LayoutGroup, motion } from 'framer-motion';
+import { LayoutGroup } from 'framer-motion';
 import React from 'react';
 
 import { homeCardsData } from '../homeData/homeCardsData';
@@ -6,10 +6,7 @@ import ExpandableCard from './ExpandableCard/ExpandableCard';
 
 const ExpandableCards = () => {
   return (
-    <motion.section
-      layout="position"
-      className="mb-24 flex flex-col items-start justify-evenly gap-5"
-    >
+    <section className="mb-24 flex flex-col items-start justify-evenly gap-5">
       <LayoutGroup>
         {homeCardsData.map((cardData) => {
           const { icon: ExpandableCardIcon } = cardData;
@@ -17,7 +14,7 @@ const ExpandableCards = () => {
 
           return (
             <ExpandableCard
-              key={cardData.title}
+              key={`${cardData.title}`}
               title={cardData.title}
               renderLeftIcon={() => (
                 <ExpandableCardIcon
@@ -31,7 +28,7 @@ const ExpandableCards = () => {
           );
         })}
       </LayoutGroup>
-    </motion.section>
+    </section>
   );
 };
 

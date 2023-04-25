@@ -65,8 +65,8 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
 
   return (
     <motion.div
-      layout
-      transition={{ duration: 0.2 }}
+      layout="position"
+      transition={{ duration: 0.5, type: 'spring' }}
       tabIndex={0}
       onKeyDown={handleKeypress}
       className={`${
@@ -79,69 +79,60 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       }}
       style={{ borderRadius: '0.75rem' }}
     >
-      <motion.div layout="position">
-        <motion.button
-          layout="position"
-          tabIndex={-1}
-          aria-label={isExpanded ? `Expand ${title} card` : `Collapse ${title} card`}
-          aria-controls="expandable card"
-          aria-expanded={isExpanded ? 'true' : 'false'}
-          className={`h-16 w-full items-center justify-between border-none text-center ${
-            isExpanded && expandedButtonStyles
-          }`}
-          onClick={expandCardHandler}
-          onMouseOver={levitateIconHandler}
-          onMouseOut={levitateIconHandler}
-          onTouchStart={touchStartHandler}
-        >
-          <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
-            <motion.div className="flex justify-start gap-4">
-              <>
-                {isHovered || isExpanded ? (
-                  <Levitate>{renderLeftIcon()}</Levitate>
-                ) : (
-                  renderLeftIcon()
-                )}
-              </>
-              <h3 className="p-0 text-xl">{title}</h3>
-            </motion.div>
-            {isExpanded ? (
-              <ChevronUp_SVG aria-hidden="true" className="w-6" />
-            ) : (
-              <ChevronDown_SVG aria-hidden="true" className="w-6" />
-            )}
+      <motion.button
+        layout
+        tabIndex={-1}
+        aria-label={isExpanded ? `Expand ${title} card` : `Collapse ${title} card`}
+        aria-controls="expandable card"
+        aria-expanded={isExpanded ? 'true' : 'false'}
+        className={`h-16 w-full items-center justify-between border-none text-center ${
+          isExpanded && expandedButtonStyles
+        }`}
+        onClick={expandCardHandler}
+        onMouseOver={levitateIconHandler}
+        onMouseOut={levitateIconHandler}
+        onTouchStart={touchStartHandler}
+      >
+        <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
+          <motion.div className="flex justify-start gap-4">
+            <>
+              {isHovered || isExpanded ? (
+                <Levitate>{renderLeftIcon()}</Levitate>
+              ) : (
+                renderLeftIcon()
+              )}
+            </>
+            <h3 className="p-0 text-xl">{title}</h3>
           </motion.div>
-        </motion.button>
-        {/* <ResizablePanel
+          {isExpanded ? (
+            <ChevronUp_SVG aria-hidden="true" className="w-6" />
+          ) : (
+            <ChevronDown_SVG aria-hidden="true" className="w-6" />
+          )}
+        </motion.div>
+      </motion.button>
+      {/* <ResizablePanel
         active={isExpanded}
         title={`${title}-expandable-card-${Math.random()}`}
       >
         {isExpanded && children}
       </ResizablePanel> */}
-        <div className="relative overflow-hidden lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start">
-          <AnimatePresence>
-            {isExpanded && (
-              <motion.div
-                layout="position"
-                ref={cardRef}
-                transition={{ duration: 0.2 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="relatve w-full"
-              >
-                {/* TODO: style ExpandableCard insides to what they were before; fix distortions on close (including background */}
-                <div
-                  className={`${
-                    isExpanded ? 'relative' : 'absolute'
-                  } flex flex-col px-4 md:px-12 lg:w-full`}
-                >
-                  {children}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+      <motion.div className="relative overflow-hidden lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start">
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              ref={cardRef}
+              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="relatve w-full"
+            >
+              {/* TODO: style ExpandableCard insides to what they were before; fix distortions on close (including background */}
+              <div className={`flex flex-col px-4 md:px-12 lg:w-full`}>{children}</div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </motion.div>
   );
