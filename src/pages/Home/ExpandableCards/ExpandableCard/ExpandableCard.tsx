@@ -14,11 +14,12 @@ type TExpandableCardProps = {
 
 const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProps) => {
   const willChange = useWillChange();
-  const [hasTouch, setHasTouch] = useState<boolean>(false);
+  // const [hasTouch, setHasTouch] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  // const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const expandedButtonStyles = 'text-color-secondary';
+  // console.log(`ExpandableCard rendered - ${title}`);
 
   const expandedCardStyles =
     '!bg-color-purple-600 !bg-opacity-50 [@media(hover:hover)]:hover:border-color-secondary border-color-purple-500';
@@ -27,15 +28,15 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
     setIsExpanded((wasExpanded) => !wasExpanded);
   };
 
-  const touchStartHandler = () => {
-    setHasTouch(true);
-  };
+  // const touchStartHandler = () => {
+  //   setHasTouch(true);
+  // };
 
-  const levitateIconHandler = () => {
-    if (!hasTouch) {
-      setIsHovered((wasHovered) => !wasHovered);
-    }
-  };
+  // const levitateIconHandler = () => {
+  //   if (!hasTouch) {
+  //     setIsHovered((wasHovered) => !wasHovered);
+  //   }
+  // };
 
   const handleKeypress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -87,19 +88,16 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
           isExpanded && expandedButtonStyles
         }`}
         onClick={expandCardHandler}
-        onMouseOver={levitateIconHandler}
-        onMouseOut={levitateIconHandler}
-        onTouchStart={touchStartHandler}
+        // onMouseOver={levitateIconHandler}
+        // onMouseOut={levitateIconHandler}
+        // onTouchStart={touchStartHandler}
         style={{ willChange }}
       >
         <div className="leading-0 flex items-center justify-between px-4 md:px-12">
           <div className="flex justify-start gap-4">
             <>
-              {isHovered || isExpanded ? (
-                <Levitate>{renderLeftIcon()}</Levitate>
-              ) : (
-                renderLeftIcon()
-              )}
+              {/* {isHovered || isExpanded ? ( */}
+              {isExpanded ? <Levitate>{renderLeftIcon()}</Levitate> : renderLeftIcon()}
             </>
             <h3 className="p-0 text-xl">{title}</h3>
           </div>
