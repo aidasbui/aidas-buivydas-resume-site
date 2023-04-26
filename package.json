@@ -20,7 +20,6 @@
     "react-use-measure": "^2.1.1"
   },
   "devDependencies": {
-    "vite-plugin-svgr": "^2.4.0",
     "@nabla/vite-plugin-eslint": "^1.5.0",
     "@types/eslint": "^8.37.0",
     "@types/node": "^18.15.11",
@@ -48,6 +47,7 @@
     "vite": "^4.1.0",
     "vite-plugin-eslint2": "^3.3.0",
     "vite-plugin-svgo": "^1.2.0",
+    "vite-plugin-svgr": "^2.4.0",
     "vite-plugin-webfont-dl": "^3.6.1"
   },
   "lint-staged": {
