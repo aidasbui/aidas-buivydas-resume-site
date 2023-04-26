@@ -6,6 +6,8 @@ import svg from 'vite-plugin-svgo';
 import svgr from 'vite-plugin-svgr';
 import webfontDownload from 'vite-plugin-webfont-dl';
 
+//TODO: fix FOUT
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
