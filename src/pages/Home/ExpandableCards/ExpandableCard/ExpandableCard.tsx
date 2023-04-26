@@ -10,16 +10,15 @@ type TExpandableCardProps = {
   renderLeftIcon: () => JSX.Element;
 };
 
-//TODO: try implementing height animation with 0 to auto: https://www.joshuawootonn.com/how-to-animate-width-and-height-with-framer-motion
+// TODO: fix expandable card performance on phones (mainly iPhone, but Android also presents the issue at times)
 
 const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProps) => {
   const willChange = useWillChange();
-  // const [hasTouch, setHasTouch] = useState<boolean>(false);
+  const [hasTouch, setHasTouch] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  // const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const expandedButtonStyles = 'text-color-secondary';
-  // console.log(`ExpandableCard rendered - ${title}`);
 
   const expandedCardStyles =
     '!bg-color-purple-600 !bg-opacity-50 [@media(hover:hover)]:hover:border-color-secondary border-color-purple-500';
@@ -28,15 +27,15 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
     setIsExpanded((wasExpanded) => !wasExpanded);
   };
 
-  // const touchStartHandler = () => {
-  //   setHasTouch(true);
-  // };
+  const touchStartHandler = () => {
+    setHasTouch(true);
+  };
 
-  // const levitateIconHandler = () => {
-  //   if (!hasTouch) {
-  //     setIsHovered((wasHovered) => !wasHovered);
-  //   }
-  // };
+  const levitateIconHandler = () => {
+    if (!hasTouch) {
+      setIsHovered((wasHovered) => !wasHovered);
+    }
+  };
 
   const handleKeypress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -44,7 +43,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
     }
   };
 
-  // useEffect(() => {
+  // useEffect(() => {                        // TODO: reimplement focusing of opened ExpandableCard (currently focuses a card only once)
   //   if (!isExpanded || !cardRef) {
   //     return;
   //   }
@@ -88,16 +87,19 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
           isExpanded && expandedButtonStyles
         }`}
         onClick={expandCardHandler}
-        // onMouseOver={levitateIconHandler}
-        // onMouseOut={levitateIconHandler}
-        // onTouchStart={touchStartHandler}
+        onMouseOver={levitateIconHandler}
+        onMouseOut={levitateIconHandler}
+        onTouchStart={touchStartHandler}
         style={{ willChange }}
       >
         <div className="leading-0 flex items-center justify-between px-4 md:px-12">
           <div className="flex justify-start gap-4">
             <>
-              {/* {isHovered || isExpanded ? ( */}
-              {isExpanded ? <Levitate>{renderLeftIcon()}</Levitate> : renderLeftIcon()}
+              {isHovered || isExpanded ? (
+                <Levitate>{renderLeftIcon()}</Levitate>
+              ) : (
+                renderLeftIcon()
+              )}
             </>
             <h3 className="p-0 text-xl">{title}</h3>
           </div>
@@ -108,12 +110,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
           )}
         </div>
       </motion.button>
-      {/* <ResizablePanel
-        active={isExpanded}
-        title={`${title}-expandable-card-${Math.random()}`}
-      >
-        {isExpanded && children}
-      </ResizablePanel> */}
+
       <div className="relative overflow-hidden lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start">
         <AnimatePresence mode="popLayout">
           {isExpanded && (
