@@ -1,7 +1,5 @@
 import { ReactComponent as Checkmark_SVG } from 'assets/icons/check.svg';
 
-import { Levitate } from '../../../hooks/useLevitate';
-
 type Tcourses = {
   title: string;
   inProgress: boolean;
@@ -42,12 +40,10 @@ export const renderCompletedCourses = () => {
             return (
               <li key={title} className="pb-4">
                 <h3 className="relative pb-0 font-jetbrainsMono text-lg text-color-secondary">
-                  <Levitate>
-                    <Checkmark_SVG
-                      aria-hidden="true"
-                      className="absolute -left-10 -top-[1.1rem] w-6"
-                    />
-                  </Levitate>
+                  <Checkmark_SVG
+                    aria-hidden="true"
+                    className="-top absolute -left-10 w-6"
+                  />
                   {title}
                 </h3>
                 <small className="text-xs text-gray-200 content-['']">
