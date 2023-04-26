@@ -1,5 +1,5 @@
 import ContactsSection from 'components/ContactsSection';
-import { LayoutGroup, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import useMediaQuery from 'hooks/useMediaQuery';
 import { ParallaxScroll } from 'hooks/useParallaxScroll';
 
@@ -17,21 +17,21 @@ const Home = () => {
         <HomeHeroSection />
       </ParallaxScroll>
 
-      <LayoutGroup>
-        <div className="flex w-full flex-col">
-          <ParallaxScroll transformPercentOutput={['0%', '-5%']}>
-            {isDesktop ? <TabbedCards /> : <ExpandableCards />}
-          </ParallaxScroll>
+      {/* <LayoutGroup> */}
+      <div className="flex w-full flex-col">
+        <ParallaxScroll transformPercentOutput={['0%', '-5%']}>
+          <div>{isDesktop ? <TabbedCards /> : <ExpandableCards />}</div>
+        </ParallaxScroll>
 
-          {!isDesktop && (
-            <motion.div layout="position" className="flex justify-start px-[1.1rem]">
-              <ParallaxScroll transformPercentOutput={['0', '-50%']}>
-                <ContactsSection />
-              </ParallaxScroll>
-            </motion.div>
-          )}
-        </div>
-      </LayoutGroup>
+        {!isDesktop && (
+          <motion.div layout="position" className="flex justify-start px-[1.1rem]">
+            <ParallaxScroll transformPercentOutput={['0', '-50%']}>
+              <ContactsSection />
+            </ParallaxScroll>
+          </motion.div>
+        )}
+      </div>
+      {/* </LayoutGroup> */}
     </div>
   );
 };
