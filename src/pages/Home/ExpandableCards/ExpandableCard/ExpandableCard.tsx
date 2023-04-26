@@ -92,8 +92,8 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
         onTouchStart={touchStartHandler}
         style={{ willChange }}
       >
-        <motion.div className="leading-0 flex items-center justify-between px-4 md:px-12">
-          <motion.div className="flex justify-start gap-4">
+        <div className="leading-0 flex items-center justify-between px-4 md:px-12">
+          <div className="flex justify-start gap-4">
             <>
               {isHovered || isExpanded ? (
                 <Levitate>{renderLeftIcon()}</Levitate>
@@ -102,13 +102,13 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
               )}
             </>
             <h3 className="p-0 text-xl">{title}</h3>
-          </motion.div>
+          </div>
           {isExpanded ? (
             <ChevronUp_SVG aria-hidden="true" className="w-6" />
           ) : (
             <ChevronDown_SVG aria-hidden="true" className="w-6" />
           )}
-        </motion.div>
+        </div>
       </motion.button>
       {/* <ResizablePanel
         active={isExpanded}
@@ -116,7 +116,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
       >
         {isExpanded && children}
       </ResizablePanel> */}
-      <motion.div className="relative overflow-hidden lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start">
+      <div className="relative overflow-hidden lg:flex lg:w-full lg:flex-col lg:items-start lg:justify-start">
         <AnimatePresence mode="popLayout">
           {isExpanded && (
             <motion.div
@@ -132,7 +132,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
