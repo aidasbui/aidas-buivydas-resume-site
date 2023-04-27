@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
 import { TSectionTitle } from 'pages/Home/homeData/homeCardsData';
-import React, { Dispatch, ReactNode, useState } from 'react';
+import React, { Dispatch, ReactNode, useEffect, useRef, useState } from 'react';
+import scrollIntoView from 'utils/scrollIntoView';
 
 type TNavigationButtonProps = {
   children: ReactNode;
@@ -19,7 +20,7 @@ const NavigationButton = ({
   isActive,
 }: TNavigationButtonProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-
+  const cardRef = useRef<HTMLButtonElement | null>(null);
   const activeNavigationButtonStyles = '!text-color-secondary';
 
   const activeCardHandler = () => {
@@ -36,8 +37,21 @@ const NavigationButton = ({
     }
   };
 
+  useEffect(() => {
+    if (!isActive || !cardRef) {
+      return;
+    }
+
+    const scrollTimeout = scrollIntoView(isActive, cardRef, 'start');
+
+    return () => {
+      clearTimeout(scrollTimeout);
+    };
+  }, [isActive, cardRef]);
+
   return (
     <motion.button
+      ref={cardRef}
       onKeyDown={handleKeypress}
       aria-label={`Show ${title} card`}
       aria-controls="card section content"

@@ -2,7 +2,8 @@ import { ReactComponent as ChevronDown_SVG } from 'assets/icons/chevron-down.svg
 import { ReactComponent as ChevronUp_SVG } from 'assets/icons/chevron-up.svg';
 import { AnimatePresence, motion, useWillChange } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import scrollIntoView from 'utils/scrollIntoView';
 
 type TExpandableCardProps = {
   children?: ReactNode;
@@ -17,6 +18,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
   const [hasTouch, setHasTouch] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
 
   const expandedButtonStyles = 'text-color-secondary';
 
@@ -43,27 +45,21 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
     }
   };
 
-  // useEffect(() => {                        // TODO: reimplement focusing of opened ExpandableCard (currently focuses a card only once)
-  //   if (!isExpanded || !cardRef) {
-  //     return;
-  //   }
+  useEffect(() => {
+    if (!isExpanded || !cardRef) {
+      return;
+    }
 
-  //   const intoView = () => {
-  //     cardRef?.current?.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //     });
-  //   };
-  //   const scrollTimeout = setTimeout(intoView, 200);
+    const scrollTimeout = scrollIntoView(isExpanded, cardRef);
 
-  //   return () => {
-  //     clearTimeout(scrollTimeout);
-  //     cardRef.current = null;
-  //   };
-  // }, [isExpanded, cardRef]);
+    return () => {
+      clearTimeout(scrollTimeout);
+    };
+  }, [isExpanded, cardRef]);
 
   return (
     <motion.div
+      ref={cardRef}
       layout="position"
       transition={{ duration: 0.5, type: 'spring' }}
       tabIndex={0}
