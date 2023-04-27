@@ -15,7 +15,7 @@ export const skills: Tskills = [
   'BEM',
   'Arch Linux',
   'WebPack',
-  'Vite.js',
+  'Vite',
   'Web Project Structure',
   'Dynamic Components',
 ];
