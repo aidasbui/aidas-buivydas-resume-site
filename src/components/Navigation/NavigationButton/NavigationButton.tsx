@@ -21,9 +21,11 @@ const NavigationButton = ({
 }: TNavigationButtonProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const cardRef = useRef<HTMLButtonElement | null>(null);
+  const mountedRef = useRef<boolean>(false);
   const activeNavigationButtonStyles = '!text-color-secondary';
 
   const activeCardHandler = () => {
+    mountedRef.current = true;
     setActiveTab(title);
   };
 
@@ -38,13 +40,12 @@ const NavigationButton = ({
   };
 
   useEffect(() => {
-    if (!isActive || !cardRef) {
-      return;
-    }
+    if (!mountedRef.current || !isActive || !cardRef) return;
 
     const scrollTimeout = scrollIntoView(isActive, cardRef, 'start');
 
     return () => {
+      mountedRef.current = false;
       clearTimeout(scrollTimeout);
     };
   }, [isActive, cardRef]);
