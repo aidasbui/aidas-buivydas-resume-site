@@ -1,7 +1,7 @@
 const scrollIntoView = (
   state: boolean,
   ref: React.MutableRefObject<HTMLElement | null>,
-  block: ScrollLogicalPosition | undefined = 'center',
+  block: ScrollLogicalPosition | undefined = 'nearest',
 ) => {
   if (!state || !ref) {
     return;

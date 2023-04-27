@@ -48,7 +48,7 @@ const ExpandableCard = ({ title, renderLeftIcon, children }: TExpandableCardProp
   useEffect(() => {
     if (!isExpanded || !cardRef) return;
 
-    const scrollTimeout = scrollIntoView(isExpanded, cardRef, 'nearest');
+    const scrollTimeout = scrollIntoView(isExpanded, cardRef);
 
     return () => {
       clearTimeout(scrollTimeout);
