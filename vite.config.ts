@@ -51,10 +51,6 @@ export default defineConfig({
          * Fonts families lists
          */
         families: [
-          // families can be either strings (only regular 400 will be loaded)
-          'Source Sans Pro',
-
-          // or objects
           {
             /**
              * Family name (required)
@@ -69,36 +65,13 @@ export default defineConfig({
             defer: true,
           },
           {
-            /**
-             * Family name (required)
-             */
             name: 'JetBrains Mono',
-
-            /**
-             * Family styles
-             */
             styles: 'wght@400;700',
-
-            /**
-             * enable non-blocking renderer
-             *   <link rel="preload" href="xxx" as="style" onload="this.rel='stylesheet'">
-             * default: true
-             */
             defer: true,
           },
         ],
       },
     }),
-    // webfontDownload(
-    //   [
-    //     'https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap',
-    //     'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap',
-    //     'https://fonts.googleapis.com/css2?family=VT323&display=swap',
-    //   ],
-    //   {
-    //     injectAsStyleTag: false,
-    //   },
-    // ),
     svgr(),
     svg(),
   ],

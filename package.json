@@ -48,8 +48,7 @@
     "vite": "^4.1.0",
     "vite-plugin-eslint2": "^3.3.0",
     "vite-plugin-svgo": "^1.2.0",
-    "vite-plugin-svgr": "^2.4.0",
-    "vite-plugin-webfont-dl": "^3.6.1"
+    "vite-plugin-svgr": "^2.4.0"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx,jsx,html,css}": "prettier --write",
