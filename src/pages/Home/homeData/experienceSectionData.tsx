@@ -1,5 +1,6 @@
 import SourceryAcademyCertificate from 'assets/files/Aidas-Buivydas_sourcery-academy-certificate.pdf';
 import { ReactComponent as BriefcaseCheck_SVG } from 'assets/icons/briefcase-check.svg';
+import { ReactComponent as ExtLink_SVG } from 'assets/icons/external-link.svg';
 import { ReactComponent as SaveFloppy_SVG } from 'assets/icons/save-floppy.svg';
 import Button from 'components/Button/Button';
 
@@ -9,7 +10,11 @@ type TExperienceSectionData = {
   experienceDateEnd?: string;
   experienceDescription: string;
   experienceAsset?: string;
+  experienceLinks?: string[];
 }[];
+
+const anchorStyles =
+  'flex items-center gap-4 rounded-xl text-center transition-colors duration-75 hover:text-color-secondary pb-2';
 
 export const experienceSectionData: TExperienceSectionData = [
   {
@@ -23,6 +28,7 @@ export const experienceSectionData: TExperienceSectionData = [
     The experience has taught me a great deal about working in a team and what a front-end engineer's day looks like. There's no better feeling than pushing your skills to the limit!
     `,
     experienceAsset: SourceryAcademyCertificate,
+    experienceLinks: ['http://bitsplease.netlify.app'],
   },
 ];
 
@@ -37,6 +43,7 @@ export const renderExperiences = () => {
             experienceDateStart,
             experienceDateEnd,
             experienceAsset,
+            experienceLinks,
           }) => {
             return (
               <li className="pb-4 " key={experienceTitle}>
@@ -60,6 +67,31 @@ export const renderExperiences = () => {
                     </small>
                   )}
                   <p className="whitespace-pre-line pb-4">{experienceDescription}</p>
+
+                  {experienceLinks && experienceLinks.length > 0 && (
+                    <>
+                      <h3 className="whitespace-pre-line pb-4">Links:</h3>
+
+                      <ul className="">
+                        {experienceLinks.map((linkString) => {
+                          return (
+                            <li key={linkString}>
+                              <a
+                                className={anchorStyles}
+                                href={linkString}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Link to ${linkString}`}
+                              >
+                                <ExtLink_SVG aria-hidden="true" className="h-6 w-6" />
+                                {linkString}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  )}
                 </div>
 
                 <div className="flex justify-center">
