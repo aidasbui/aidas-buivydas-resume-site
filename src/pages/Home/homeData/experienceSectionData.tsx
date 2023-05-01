@@ -14,7 +14,7 @@ type TExperienceSectionData = {
 }[];
 
 const anchorStyles =
-  'flex items-center gap-4 rounded-xl text-center transition-colors duration-75 hover:text-color-secondary pb-2';
+  'flex items-center gap-4 break-words text-center transition-colors duration-75 hover:text-color-secondary pb-2';
 
 export const experienceSectionData: TExperienceSectionData = [
   {
@@ -70,9 +70,7 @@ export const renderExperiences = () => {
 
                   {experienceLinks && experienceLinks.length > 0 && (
                     <>
-                      <h3 className="whitespace-pre-line pb-4">Links:</h3>
-
-                      <ul className="">
+                      <ul>
                         {experienceLinks.map((linkString) => {
                           return (
                             <li key={linkString}>
@@ -84,7 +82,7 @@ export const renderExperiences = () => {
                                 aria-label={`Link to ${linkString}`}
                               >
                                 <ExtLink_SVG aria-hidden="true" className="h-6 w-6" />
-                                {linkString}
+                                Link to Project
                               </a>
                             </li>
                           );

@@ -80,7 +80,7 @@ export const renderHobbies = () => {
       </ul>
 
       <p className="whitespace-pre-line pb-4">{hobbyLinksDescription}</p>
-      <ul className="">
+      <ul>
         {hobbyLinks.map((linkObject) => {
           return (
             <li key={linkObject.link}>
