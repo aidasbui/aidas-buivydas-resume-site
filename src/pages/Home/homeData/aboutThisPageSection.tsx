@@ -1,9 +1,9 @@
+import { ReactComponent as ExtLink_SVG } from 'assets/icons/external-link.svg';
 import { ReactComponent as Gamepad_SVG } from 'assets/icons/gamepad.svg';
 
 type TAboutThisPageSectionData = {
   aboutThisPageDescription: string;
   toolsHeading: string;
-  toolsDescription: string;
   toolsList: string[];
 };
 
@@ -11,9 +11,6 @@ export const aboutThisPageSectionData: TAboutThisPageSectionData = {
   aboutThisPageDescription: `This is my personal project that acts as a resume or portfolio.`,
 
   toolsHeading: `Tools used:`,
-  toolsDescription: `You can check out my GitHub repo for full information.
-
-  Note: it's my first time using TailWind CSS and setting up a project with Vite (nice opportunity to learn). Feel free to comment the project, I'd love to learn some new tricks!`,
   toolsList: [
     'React.js',
     'TypeScript',
@@ -25,9 +22,11 @@ export const aboutThisPageSectionData: TAboutThisPageSectionData = {
   ],
 };
 
+const anchorStyles =
+  'inline-flex items-center gap-2 rounded-xl text-center transition-colors duration-75 hover:text-color-secondary h-full leading-[0] relative top-[3px]';
+
 export const renderAboutThisPageSection = () => {
-  const { aboutThisPageDescription, toolsHeading, toolsDescription, toolsList } =
-    aboutThisPageSectionData;
+  const { aboutThisPageDescription, toolsHeading, toolsList } = aboutThisPageSectionData;
 
   return (
     <section className="pb-8">
@@ -53,7 +52,22 @@ export const renderAboutThisPageSection = () => {
           );
         })}
       </ul>
-      <p className="whitespace-pre-line">{toolsDescription}</p>
+      <p className="whitespace-pre-line">
+        {`You can check out my `}{' '}
+        <a
+          href="https://github.com/aidasbui/aidas-buivydas-resume-site/tree/master"
+          className={anchorStyles}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="aidasbui.com Github repository"
+        >
+          <ExtLink_SVG aria-hidden="true" className="h-4 w-4" />
+          GitHub repo
+        </a>
+        {` for full information.
+
+Note: it's my first time using TailWind CSS and setting up a project with Vite (nice opportunity to learn). Feel free to comment the project, I'd love to learn some new tricks!`}
+      </p>
     </section>
   );
 };
