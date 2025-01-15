@@ -14,6 +14,7 @@ This is my personal project that acts as a resume or portfolio. Feel free to che
 - React Router v6
 - ESLint and Prettier
 - Docker
+- Nginx Proxy Manager
 - Debian 12
 
 You can check out the `package.json` file for full information.
