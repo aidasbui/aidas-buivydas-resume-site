@@ -16,6 +16,7 @@ This is my personal project that acts as a resume or portfolio. Feel free to che
 - Docker
 - Nginx Proxy Manager
 - Debian 12
+- GithubActions
 
 You can check out the `package.json` file for full information.
 
