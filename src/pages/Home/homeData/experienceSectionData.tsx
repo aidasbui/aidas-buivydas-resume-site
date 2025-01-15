@@ -18,6 +18,14 @@ const anchorStyles =
 
 export const experienceSectionData: TExperienceSectionData = [
   {
+    experienceTitle: 'Full-stack Web Developer at Enable.',
+    experienceDateStart: '2024-01',
+    experienceDateEnd: 'Present',
+    experienceDescription: `Helping to develop and grow digital products in foreign markets. I mainly work with Next.js, TypeScript, PostgreSQL and Prisma`,
+    experienceAsset: undefined,
+    experienceLinks: ['https://www.enable.ink'],
+  },
+  {
     experienceTitle: 'Sourcery Academy for Front-End (DevBridge, Cognizant Softvision)',
     experienceDateStart: '2022-10',
     experienceDateEnd: '2023-01',
@@ -28,7 +36,7 @@ export const experienceSectionData: TExperienceSectionData = [
     The experience has taught me a great deal about working in a team and what a front-end engineer's day looks like. There's no better feeling than pushing your skills to the limit!
     `,
     experienceAsset: SourceryAcademyCertificate,
-    experienceLinks: ['http://bitsplease.netlify.app'],
+    experienceLinks: ['https://bitsplease.netlify.app'],
   },
 ];
 
@@ -82,7 +90,7 @@ export const renderExperiences = () => {
                                 aria-label={`Link to ${linkString}`}
                               >
                                 <ExtLink_SVG aria-hidden="true" className="h-6 w-6" />
-                                Link to Project
+                                Related Link
                               </a>
                             </li>
                           );
@@ -92,18 +100,20 @@ export const renderExperiences = () => {
                   )}
                 </div>
 
-                <div className="flex justify-center">
-                  <Button href={experienceAsset} download="Aidas Buivydas CV">
-                    <div className="flex items-center justify-center gap-2">
-                      <SaveFloppy_SVG
-                        className="relative h-6 w-6"
-                        aria-hidden="true"
-                        aria-label="download certificate"
-                      />
-                      Certificate
-                    </div>
-                  </Button>
-                </div>
+                {experienceAsset && (
+                  <div className="flex justify-center">
+                    <Button href={experienceAsset} download="Aidas Buivydas CV">
+                      <div className="flex items-center justify-center gap-2">
+                        <SaveFloppy_SVG
+                          className="relative h-6 w-6"
+                          aria-hidden="true"
+                          aria-label="download certificate"
+                        />
+                        Certificate
+                      </div>
+                    </Button>
+                  </div>
+                )}
               </li>
             );
           },
