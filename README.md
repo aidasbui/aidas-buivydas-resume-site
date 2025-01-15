@@ -13,10 +13,12 @@ This is my personal project that acts as a resume or portfolio. Feel free to che
 - Vite
 - React Router v6
 - ESLint and Prettier
+- Docker
+- Debian 12
 
 You can check out the `package.json` file for full information.
 
-Note: it's my first time using TailWind CSS and setting up a project with Vite (nice opportunity to learn), so some things may be sub-optimal. Feel free to comment on the project structure, I'd love to learn some new tricks! ;)
+Note: Feel free to comment on the project structure, I'd love to learn some new tricks!
 
 ## License
 
