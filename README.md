@@ -1,4 +1,4 @@
-# Resume website of Front-end developer Aidas Buivydas
+# Resume website by Aidas Buivydas
 
 ## Hi there!
 
