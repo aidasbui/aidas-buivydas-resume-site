@@ -67,9 +67,7 @@ export const renderAboutThisPageSection = () => {
           <ExtLink_SVG aria-hidden="true" className="h-4 w-4" />
           GitHub repo
         </a>
-        {` for full information.
-
-Note: it's my first time using TailWind CSS and setting up a project with Vite (nice opportunity to learn). Feel free to comment the project, I'd love to learn some new tricks!`}
+        {` for full information.`}
       </p>
     </section>
   );

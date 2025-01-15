@@ -2,7 +2,6 @@ import { ReactComponent as SaveFloppy_SVG } from 'assets/icons/save-floppy.svg';
 import Button from 'components/Button';
 import { motion } from 'framer-motion';
 import { Levitate } from 'hooks/useLevitate';
-import React from 'react';
 
 import { homeHeroData } from './homeHeroData';
 
@@ -11,7 +10,12 @@ const HomeHeroSection = () => {
     <section className="mb-48 flex w-full flex-col gap-12 sm:max-w-lg md:max-w-3xl lg:mb-12 lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
       <div>
         <motion.h2>
-          <Levitate>{homeHeroData.heading}</Levitate>
+          <Levitate>
+            <span className="flex items-center justify-center gap-4">
+              {homeHeroData.heading}
+              <span className="relative top-[3px] text-3xl">👾</span>
+            </span>
+          </Levitate>
         </motion.h2>
         <p className="whitespace-pre-line">{homeHeroData.paragraph}</p>
       </div>

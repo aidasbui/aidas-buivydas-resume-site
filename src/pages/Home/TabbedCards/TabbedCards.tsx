@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { homeCardsData, TSectionTitle } from '../homeData/homeCardsData';
 
 const TabbedCards = () => {
-  const [activeTab, setActiveTab] = useState<TSectionTitle>('Courses');
+  const [activeTab, setActiveTab] = useState<TSectionTitle>('Experience');
 
   return (
     <>

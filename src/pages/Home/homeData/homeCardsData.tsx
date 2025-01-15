@@ -35,9 +35,9 @@ type THomeCardsData = {
 
 export const homeCardsData: THomeCardsData = [
   {
-    title: 'Courses',
-    icon: AcademicCap_SVG,
-    content: renderCompletedCourses,
+    title: 'Experience',
+    icon: Experience_SVG,
+    content: renderExperiences,
     iconIsShiftedDown: true,
   },
   {
@@ -47,9 +47,9 @@ export const homeCardsData: THomeCardsData = [
     iconIsShiftedDown: true,
   },
   {
-    title: 'Experience',
-    icon: Experience_SVG,
-    content: renderExperiences,
+    title: 'Courses',
+    icon: AcademicCap_SVG,
+    content: renderCompletedCourses,
     iconIsShiftedDown: true,
   },
   {

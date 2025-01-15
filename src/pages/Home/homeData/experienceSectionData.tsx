@@ -21,7 +21,7 @@ export const experienceSectionData: TExperienceSectionData = [
     experienceTitle: 'Full-stack Web Developer at Enable.',
     experienceDateStart: '2024-01',
     experienceDateEnd: 'Present',
-    experienceDescription: `Helping to develop and grow digital products in foreign markets. I mainly work with Next.js, TypeScript, PostgreSQL and Prisma`,
+    experienceDescription: `Helping to develop and grow digital products in foreign markets. I mainly work with Next.js, TypeScript, PostgreSQL (Supabase) and Prisma.`,
     experienceAsset: undefined,
     experienceLinks: ['https://www.enable.ink'],
   },

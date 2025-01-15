@@ -19,7 +19,7 @@ export const hobbiesSectionData: THobbiesSectionData = {
   hobbyList: [
     'Sound design/music production',
     'Coffee brewing (I prefer V60)',
-    'Learning Linux (by configuring my Arch system)',
+    'Learning Linux (Arch, Debian, etc.)',
     'Cinephilia',
     'Chess and other tabletops (Go, D&D and such)',
     'Analog photography',

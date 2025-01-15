@@ -3,21 +3,22 @@ import { ReactComponent as Checkbox_SVG } from 'assets/icons/checkbox.svg';
 type Tskills = string[];
 
 export const skills: Tskills = [
+  'Next.js',
   'React.js',
   'TypeScript',
   'JavaScript',
+  'Prisma',
+  'Tailwind CSS',
+  'PostgreSQL',
+  'Docker',
   'Semantic HTML',
   'CSS',
   'SASS',
-  'Tailwind CSS',
   'Git',
-  'Agile Methodologies',
   'BEM',
   'Arch Linux',
   'WebPack',
   'Vite',
-  'Web Project Structure',
-  'Dynamic Components',
 ];
 
 export const renderSkillsList = () => {
