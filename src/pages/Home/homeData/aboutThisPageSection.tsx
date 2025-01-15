@@ -21,7 +21,7 @@ export const aboutThisPageSectionData: TAboutThisPageSectionData = {
     'ESLint and Prettier',
     'Docker',
     'Nginx Proxy Manager',
-    'Debian 12'
+    'Debian 12',
   ],
 };
 
