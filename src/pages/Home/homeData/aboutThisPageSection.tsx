@@ -19,6 +19,9 @@ export const aboutThisPageSectionData: TAboutThisPageSectionData = {
     'Vite',
     'React Router v6',
     'ESLint and Prettier',
+    'Docker',
+    'Nginx Proxy Manager',
+    'Debian 12'
   ],
 };
 
