@@ -22,7 +22,7 @@ const Header = () => {
             </div>
             <div className="lg:flex lg:flex-col lg:justify-center">
               <h1 className="py-2 text-left">Aidas Buivydas</h1>
-              <div className=" font-vt323 text-xl">Front-end Web Developer</div>
+              <p className="font-vt323 text-xl">Full-Stack Web Developer</p>
             </div>
           </div>
           {isDesktop && (
