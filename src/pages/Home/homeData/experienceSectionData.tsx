@@ -17,13 +17,26 @@ const anchorStyles =
   'flex items-center gap-4 break-words text-center transition-colors duration-75 hover:text-color-secondary pb-2';
 
 export const experienceSectionData: TExperienceSectionData = [
+  // {
+  //   experienceTitle: 'Front-End Engineer at Bioma Health',
+  //   experienceDateStart: '2026-02',
+  //   experienceDateEnd: 'Present',
+  //   experienceDescription: ``,
+  //   experienceLinks: ['https://bioma.health'],
+  // },
   {
-    experienceTitle: 'Full-stack Web Developer at Enable.',
-    experienceDateStart: '2024-01',
+    experienceTitle: 'Front-End Engineer at ViaCorex',
+    experienceDateStart: '2025-04',
     experienceDateEnd: 'Present',
-    experienceDescription: `Helping to develop and grow digital products in foreign markets. I mainly work with Next.js, TypeScript, PostgreSQL (Supabase) and Prisma.`,
-    experienceAsset: undefined,
-    experienceLinks: ['https://www.enable.ink'],
+    experienceDescription: `Helping to modernize the Angular JS front-end of a B2B project to boost clients' productivity using React micro-frontends and .NET backend API hosted on Azure.`,
+    experienceLinks: ['https://www.viacorex.com/'],
+  },
+  {
+    experienceTitle: 'Full-Stack Web Developer at Enable. (Neuroraktai, UAB)',
+    experienceDateStart: '2024-01',
+    experienceDateEnd: '2025-04',
+    experienceDescription: `Developed digital products in foreign markets. I mainly worked with Next.js, TypeScript, PostgreSQL (Supabase) and Prisma.`,
+    experienceLinks: [],
   },
   {
     experienceTitle: 'Sourcery Academy for Front-End (DevBridge, Cognizant Softvision)',

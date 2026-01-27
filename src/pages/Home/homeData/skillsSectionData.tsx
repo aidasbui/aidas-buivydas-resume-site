@@ -19,6 +19,7 @@ export const skills: Tskills = [
   'Arch Linux',
   'WebPack',
   'Vite',
+  'Azure DevOps',
 ];
 
 export const renderSkillsList = () => {

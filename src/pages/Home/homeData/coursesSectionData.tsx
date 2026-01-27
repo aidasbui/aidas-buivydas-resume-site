@@ -7,10 +7,6 @@ type Tcourses = {
 
 export const courses: Tcourses = [
   {
-    title: 'Java Programming I (MOOC), University of Helsinki',
-    inProgress: true,
-  },
-  {
     title: 'Understanding Typescript, Academind GmbH',
     inProgress: false,
   },
